@@ -46,6 +46,6 @@ Como parte do meu compromisso com a melhoria do serviço público, desenvolvi e 
 
 ## 🔗 Conecte-se Comigo
 [![Currículo Lattes](https://img.shields.io)]([http://lattes.cnpq.br](http://lattes.cnpq.br/277583476830097))
-[![LinkedIn](https://img.shields.io)]([https://www.linkedin.com](https://www.linkedin.com/in/gilton-vasconcelos/))
+[![LinkedIn](https://img.shields.io)]([www.linkedin.com/in/gilton-vasconcelos/))
 [![Blog](https://img.shields.io)](https://sites.google.com/view/amorepsicanalise/)
 [![E-mail](https://img.shields.io)](mailto:vasconcelos.gilton@gmail.com)
