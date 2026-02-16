@@ -1,4 +1,3 @@
-markdown
 # Olá, eu sou o Gilton Vasconcelos! 👋
 
 ## 🏛️ Sobre Mim
