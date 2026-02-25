@@ -11,17 +11,14 @@
 
 
 <h1 align="center"> Portfólio de Gilton Vasconcelos! Seja ben Vindo! 👋</h1>
- <h1>Olá, eu sou o Gilton Vasconcelos! 👋</h1>
-      <p>Servidor público, Coordenador de TI e Psicanalista. Atuo na intersecção entre tecnologia e cuidado humano no serviço público.</p>
-<p align="center">
+      <h1 align="center"> "Servidor público, gestor de TI e Psicanalista. Meu interesse é unir tecnologia e escuta para garantir que os sistemas sirvam ao cuidado humano."
+        <p align="center">
   <img src="https://img.shields.io" />
   <img src="https://img.shields.io" />
   <img src="https://img.shields.io" />
 </p>
-  </td>
-    <td>
-     
-    </td>
+  
+    
 </table>
 <p align="center">
   <img src="https://img.shields.io" />
