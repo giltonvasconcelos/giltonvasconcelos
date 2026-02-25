@@ -1,3 +1,21 @@
+<!-- Banner no Topo -->
+<p align="center">
+  <img src="https://capsule-render.vercel.app|%20Servidor%20Público%20|%20Psicanalista&descSize=22&descAlignY=60" />
+</p>
+
+<!-- Foto de Perfil Centralizada -->
+<p align="center">
+  <img src="https://github.com" width="160px" style="border-radius: 50%; border: 4px solid #0077B5;" alt="Gilton Vasconcelos">
+</p>
+
+<h1 align="center">Olá, bem-vindo ao meu portfólio! 👋</h1>
+
+<p align="center">
+  <img src="https://img.shields.io" />
+  <img src="https://img.shields.io" />
+  <img src="https://img.shields.io" />
+</p>
+
 # Olá, eu sou o Gilton Vasconcelos! 👋
 <table>
   <tr>
