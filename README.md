@@ -5,7 +5,7 @@
 
 <!-- Foto de Perfil Centralizada -->
 <p align="center">
-  <img src="https://github.com" width="160px" style="border-radius: 50%; border: 4px solid #0077B5;" alt="Gilton Vasconcelos">
+  <img src="https://avatars.githubusercontent.com/u/261689345?v=4" width="160px" style="border-radius: 50%; border: 4px solid #0077B5;" alt="Gilton Vasconcelos">
 </p>
 
 <h1 align="center">Olá, bem-vindo ao meu portfólio! 👋</h1>
