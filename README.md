@@ -1,11 +1,5 @@
-<!-- Foto de Perfil Centralizada -->
-<p align="center"> 
-  <img src="https://avatars.githubusercontent.com/u/261689345?v=4" width="120px" style="border-radius: 50%; border: 4px solid #0077B5;" alt="Gilton Vasconcelos"> 
-  
-# <p align="center">   Olá, eu sou o Gilton Vasconcelos! 👋
+# Olá, eu sou o Gilton Vasconcelos! 👋
 
-## <p align="center"> "Servidor Público na área de TI & Psicanalista em Percurso | Unindo Suporte Técnico e Compreensão do Comportamento Humano"
----
 ## 🏛️ Sobre Mim
 Servidor público efetivo na **Prefeitura Municipal de Triunfo (PE)** desde 2008. Atuo na intersecção estratégica entre **Gestão Pública**, **Tecnologia da Informação** e **Saúde Coletiva**, com foco em transformar a administração pública através da digitalização e do cuidado humano.
 
