@@ -6,27 +6,22 @@
 <!-- Foto de Perfil Centralizada -->
 <p align="center">
   <img src="https://avatars.githubusercontent.com/u/261689345?v=4" width="160px" style="border-radius: 50%; border: 4px solid #0077B5;" alt="Gilton Vasconcelos">
+  
 </p>
 
-<h1 align="center">Olá, bem-vindo ao meu portfólio! 👋</h1>
 
+<h1 align="center"> Portfólio de Gilton Vasconcelos! Seja ben Vindo! 👋</h1>
+ <h1>Olá, eu sou o Gilton Vasconcelos! 👋</h1>
+      <p>Servidor público, Coordenador de TI e Psicanalista. Atuo na intersecção entre tecnologia e cuidado humano no serviço público.</p>
 <p align="center">
   <img src="https://img.shields.io" />
   <img src="https://img.shields.io" />
   <img src="https://img.shields.io" />
 </p>
-
-# Olá, eu sou o Gilton Vasconcelos! 👋
-<table>
-  <tr>
+  </td>
     <td>
-      <img src="https://avatars.githubusercontent.com/u/261689345?v=4" width="180px" style="border-radius: 20px;" alt="Gilton Vasconcelos">
+     
     </td>
-    <td>
-      <h1>Olá, eu sou o Gilton Vasconcelos! 👋</h1>
-      <p>Servidor público, Coordenador de TI e Psicanalista. Atuo na intersecção entre tecnologia e cuidado humano no serviço público.</p>
-    </td>
-  </tr>
 </table>
 <p align="center">
   <img src="https://img.shields.io" />
