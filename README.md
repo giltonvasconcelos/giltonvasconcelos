@@ -1,6 +1,6 @@
 <!-- Foto de Perfil Centralizada -->
 <p align="center"> 
-  <img src="https://avatars.githubusercontent.com/u/261689345?v=4" width="160px" style="border-radius: 50%; border: 4px solid #0077B5;" alt="Gilton Vasconcelos"> 
+  <img src="https://avatars.githubusercontent.com/u/261689345?v=4" width="120px" style="border-radius: 50%; border: 4px solid #0077B5;" alt="Gilton Vasconcelos"> 
   
 # <p align="center">   Olá, eu sou o Gilton Vasconcelos! 👋
 
