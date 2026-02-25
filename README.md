@@ -1,5 +1,15 @@
 # Olá, eu sou o Gilton Vasconcelos! 👋
-
+<table>
+  <tr>
+    <td>
+      <img src="https://github.com" width="180px" style="border-radius: 20px;" alt="Gilton Vasconcelos">
+    </td>
+    <td>
+      <h1>Olá, eu sou o Gilton Vasconcelos! 👋</h1>
+      <p>Servidor público, Coordenador de TI e Psicanalista. Atuo na intersecção entre tecnologia e cuidado humano no serviço público.</p>
+    </td>
+  </tr>
+</table>
 <p align="center">
   <img src="https://img.shields.io" />
   <img src="https://img.shields.io" />
