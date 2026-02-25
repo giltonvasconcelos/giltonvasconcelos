@@ -2,7 +2,7 @@
 <table>
   <tr>
     <td>
-      <img src="https://github.com" width="180px" style="border-radius: 20px;" alt="Gilton Vasconcelos">
+      <img src="https://avatars.githubusercontent.com/u/261689345?v=4" width="180px" style="border-radius: 20px;" alt="Gilton Vasconcelos">
     </td>
     <td>
       <h1>Olá, eu sou o Gilton Vasconcelos! 👋</h1>
