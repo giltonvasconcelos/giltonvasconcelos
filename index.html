@@ -697,50 +697,74 @@
             
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
-
-        // === FUNÇÃO PARA ABRIR CONTEÚDO ===
-        function abrirConteudo(id, url) {
-            const container = document.getElementById('cursos-container');
-            const titulo = document.getElementById('conteudo-titulo');
-            const conteudo = document.getElementById('cursos-conteudo');
-            
-            // Determinar qual container usar baseado no contexto
-            let containerAtual, tituloAtual, conteudoAtual;
-            
-            if (id.startsWith('projeto')) {
-                containerAtual = document.getElementById('projetos-container');
-                tituloAtual = document.getElementById('projeto-titulo');
-                conteudoAtual = document.getElementById('projetos-conteudo');
-            } else {
-                containerAtual = document.getElementById('cursos-container');
-                tituloAtual = document.getElementById('conteudo-titulo');
-                conteudoAtual = document.getElementById('cursos-conteudo');
-            }
-            
-            tituloAtual.textContent = id.includes('ebook') ? 'E-Book Grátis' :
-                                      id.includes('completo') ? 'Curso Completo' :
-                                      id.includes('lgpd') ? 'Curso LGPD' :
-                                      id.includes('guia') ? 'Guia de Tecnologia' :
-                                      id.includes('projeto1') ? 'Amor e Psicanálise' :
-                                      id.includes('projeto2') ? 'Saúde Mental de Jovens' :
-                                      id.includes('projeto3') ? 'Informática para Todos' :
-                                      id.includes('projeto4') ? 'Manuais de Boas Práticas' : 'Conteúdo';
-            
-            conteudoAtual.innerHTML = '<div class="loading"><p>📖 Carregando conteúdo...</p></div>';
-            
-            // Criar iframe para mostrar o conteúdo
-            const iframe = document.createElement('iframe');
-            iframe.src = url;
-            iframe.style.width = '100%';
-            iframe.style.height = '600px';
-            iframe.style.border = 'none';
-            iframe.style.borderRadius = '10px';
-            
-            conteudoAtual.innerHTML = '';
-            conteudoAtual.appendChild(iframe);
-            
-            containerAtual.classList.remove('hidden');
-        }
+// === FUNÇÃO PARA ABRIR CONTEÚDO (CORRIGIDA) ===
+function abrirConteudo(id, url) {
+    // Determinar qual container usar baseado no contexto
+    let containerAtual, tituloAtual, conteudoAtual;
+    
+    if (id.startsWith('projeto')) {
+        containerAtual = document.getElementById('projetos-container');
+        tituloAtual = document.getElementById('projeto-titulo');
+        conteudoAtual = document.getElementById('projetos-conteudo');
+    } else {
+        containerAtual = document.getElementById('cursos-container');
+        tituloAtual = document.getElementById('conteudo-titulo');
+        conteudoAtual = document.getElementById('cursos-conteudo');
+    }
+    
+    // Verificar se os elementos existem
+    if (!containerAtual || !tituloAtual || !conteudoAtual) {
+        console.error('Elementos não encontrados');
+        return;
+    }
+    
+    // Definir o título correto
+    if (id.includes('ebook')) {
+        tituloAtual.textContent = '📖 E-Book Grátis - Transformação Digital no Serviço Público';
+    } else if (id.includes('curso-completo')) {
+        tituloAtual.textContent = '🎓 Curso Completo - Competências Digitais para Servidores';
+    } else if (id.includes('curso-lgpd')) {
+        tituloAtual.textContent = '🔐 Curso Avançado - LGPD e Proteção de Dados';
+    } else if (id.includes('guia-tech')) {
+        tituloAtual.textContent = '📱 Guia Rápido - Guia de Tecnologia para Gestores';
+    } else if (id.includes('projeto1')) {
+        tituloAtual.textContent = '🧠 Amor e Psicanálise';
+    } else if (id.includes('projeto2')) {
+        tituloAtual.textContent = '📚 Saúde Mental de Jovens';
+    } else if (id.includes('projeto3')) {
+        tituloAtual.textContent = '⚙️ Informática para Todos';
+    } else if (id.includes('projeto4')) {
+        tituloAtual.textContent = '🔐 Manuais de Boas Práticas';
+    } else {
+        tituloAtual.textContent = 'Conteúdo';
+    }
+    
+    // Mostrar loading
+    conteudoAtual.innerHTML = '<div class="loading"><p>📖 Carregando conteúdo...</p></div>';
+    
+    // Criar iframe para mostrar o conteúdo
+    const iframe = document.createElement('iframe');
+    iframe.src = url;
+    iframe.style.width = '100%';
+    iframe.style.height = '600px';
+    iframe.style.border = 'none';
+    iframe.style.borderRadius = '10px';
+    iframe.style.background = 'white';
+    
+    // Limpar e adicionar o iframe
+    conteudoAtual.innerHTML = '';
+    conteudoAtual.appendChild(iframe);
+    
+    // Mostrar o container
+    containerAtual.classList.remove('hidden');
+    
+    // Garantir que os outros containers estejam fechados
+    if (id.startsWith('projeto')) {
+        document.getElementById('cursos-container').classList.add('hidden');
+    } else {
+        document.getElementById('projetos-container').classList.add('hidden');
+    }
+}
 
         // === FUNÇÃO PARA FECHAR CONTEÚDO ===
         function fecharConteudo(containerId) {
