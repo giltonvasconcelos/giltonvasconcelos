@@ -5,6 +5,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gilton Vasconcelos - Portal Profissional</title>
     <style>
+/* Estilo para o container do README */
+.readme-content {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    margin-top: 20px;
+    overflow-x: auto;
+}
+
+/* Estilo para o loading */
+.loading {
+    text-align: center;
+    padding: 50px;
+    color: #764ba2;
+    font-size: 1.2em;
+}
+
+/* Estilo para o conteúdo do README (igual ao GitHub) */
+.readme-content h1 {
+    border-bottom: 1px solid #eaecef;
+    padding-bottom: 0.3em;
+    color: #764ba2;
+}
+
+.readme-content h2 {
+    border-bottom: 1px solid #eaecef;
+    padding-bottom: 0.3em;
+    margin-top: 24px;
+}
+
+.readme-content table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 20px 0;
+}
+
+.readme-content th,
+.readme-content td {
+    border: 1px solid #dfe2e5;
+    padding: 6px 13px;
+}
+
+.readme-content th {
+    background-color: #f6f8fa;
+}
+
+.readme-content img {
+    max-width: 100%;
+}
+
+.readme-content hr {
+    height: 0.25em;
+    background-color: #e1e4e8;
+    border: 0;
+    margin: 24px 0;
+}
+
+.readme-content pre {
+    background-color: #f6f8fa;
+    border-radius: 3px;
+    padding: 16px;
+    overflow-x: auto;
+}
+
+.readme-content code {
+    background-color: rgba(27,31,35,0.05);
+    border-radius: 3px;
+    padding: 0.2em 0.4em;
+}
+
+        
         * {
             margin: 0;
             padding: 0;
@@ -757,6 +829,162 @@
                 document.getElementById('openMenuBtn').classList.remove('hidden');
             }
         });
+
+        // Função para carregar o README.md
+function carregarReadme() {
+    const container = document.getElementById('readme-container');
+    
+    // Mostrar loading
+    container.innerHTML = '<div class="loading"><p>📖 Carregando conteúdo...</p></div>';
+    
+    // Buscar o README.md do repositório
+    fetch('https://raw.githubusercontent.com/giltonvasconcelos/giltonvasconcelos/main/README.md')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Erro ao carregar README');
+            }
+            return response.text();
+        })
+        .then(markdown => {
+            // Converter Markdown para HTML (usando biblioteca simples)
+            const html = converterMarkdown(markdown);
+            container.innerHTML = html;
+        })
+        .catch(error => {
+            container.innerHTML = `<div class="loading" style="color: red;">
+                <p>❌ Erro ao carregar: ${error.message}</p>
+                <p>Carregando conteúdo padrão...</p>
+            </div>`;
+            // Fallback: conteúdo do README copiado
+            container.innerHTML = carregarConteudoPadrao();
+        });
+}
+
+// Função simples para converter Markdown básico para HTML
+function converterMarkdown(texto) {
+    // Escapar HTML
+    texto = texto.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    
+    // Converter cabeçalhos
+    texto = texto.replace(/^### (.*$)/gm, '<h3>$1</h3>');
+    texto = texto.replace(/^## (.*$)/gm, '<h2>$1</h2>');
+    texto = texto.replace(/^# (.*$)/gm, '<h1>$1</h1>');
+    
+    // Converter negrito
+    texto = texto.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+    texto = texto.replace(/__(.*?)__/g, '<strong>$1</strong>');
+    
+    // Converter itálico
+    texto = texto.replace(/\*(.*?)\*/g, '<em>$1</em>');
+    texto = texto.replace(/_(.*?)_/g, '<em>$1</em>');
+    
+    // Converter listas
+    let linhas = texto.split('\n');
+    let emLista = false;
+    let listaHtml = [];
+    
+    for (let i = 0; i < linhas.length; i++) {
+        let linha = linhas[i];
+        
+        // Lista não ordenada
+        if (linha.match(/^[-*+]\s/)) {
+            if (!emLista) {
+                listaHtml.push('<ul>');
+                emLista = true;
+            }
+            listaHtml.push('<li>' + linha.replace(/^[-*+]\s/, '') + '</li>');
+        } 
+        // Lista ordenada
+        else if (linha.match(/^\d+\.\s/)) {
+            if (!emLista) {
+                listaHtml.push('<ol>');
+                emLista = true;
+            }
+            listaHtml.push('<li>' + linha.replace(/^\d+\.\s/, '') + '</li>');
+        }
+        else {
+            if (emLista) {
+                listaHtml.push(linha.match(/^\d+\.\s/) ? '</ol>' : '</ul>');
+                emLista = false;
+            }
+            listaHtml.push(linha);
+        }
+    }
+    
+    texto = listaHtml.join('\n');
+    
+    // Converter linhas horizontais
+    texto = texto.replace(/^---$/gm, '<hr>');
+    
+    // Converter parágrafos
+    texto = texto.replace(/^(?!<[hou]|$)(.*$)/gm, '<p>$1</p>');
+    
+    // Converter imagens
+    texto = texto.replace(/!\[(.*?)\]\((.*?)\)/g, '<img src="$2" alt="$1">');
+    
+    // Converter links
+    texto = texto.replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank">$1</a>');
+    
+    return texto;
+}
+
+// Conteúdo padrão caso o fetch falhe
+function carregarConteudoPadrao() {
+    return `
+        <h1>Gilton Vasconcelos</h1>
+        
+        <h2>🏛️ Sobre Mim</h2>
+        <p>Servidor público efetivo na <strong>Prefeitura Municipal de Triunfo (PE)</strong> desde 2008. Atuo na intersecção estratégica entre <strong>Gestão Pública</strong>, <strong>Tecnologia da Informação</strong> e <strong>Saúde Coletiva</strong>, com foco em transformar a administração pública através da digitalização e do cuidado humano.</p>
+        
+        <ul>
+            <li>🎓 Graduando em <strong>Gestão da Tecnologia da Informação</strong> (FCV).</li>
+            <li>⚙️ Coordenador do projeto <strong>"Informática para Todos"</strong>.</li>
+            <li>🔐 Especialista em infraestrutura de redes e conformidade com a <strong>LGPD</strong>.</li>
+            <li>🧠 <strong>Psicanalista Clínico</strong> (Instituto Gaio).</li>
+        </ul>
+        
+        <h2>🏆 Destaques & Impacto</h2>
+        <ul>
+            <li><strong>Transformação Digital:</strong> Liderança na capacitação de servidores municipais.</li>
+            <li><strong>Gestão Estratégica:</strong> Atuação em planejamento orçamentário do SUS.</li>
+        </ul>
+    `;
+}
+
+        // Modifique a função mostrarSecao existente
+function mostrarSecao(secaoId) {
+    // Esconder todas as seções
+    const secoes = document.querySelectorAll('.section');
+    secoes.forEach(sec => sec.classList.add('hidden'));
+    
+    // Mostrar a seção selecionada
+    const secaoAtual = document.getElementById(secaoId);
+    secaoAtual.classList.remove('hidden');
+    
+    // Se for a seção "sobre", carregar o README
+    if (secaoId === 'sobre') {
+        carregarReadme();
+    }
+    
+    // Atualizar botões ativos no menu
+    const botoes = document.querySelectorAll('.menu-btn');
+    botoes.forEach(btn => btn.classList.remove('active'));
+    
+    // Encontrar e ativar o botão correspondente
+    const botaoAtivo = Array.from(botoes).find(btn => 
+        btn.textContent.includes(secaoId === 'home' ? 'Home' : 
+                               secaoId === 'sobre' ? 'Sobre' :
+                               secaoId === 'projetos' ? 'Projetos' :
+                               secaoId === 'cursos' ? 'Cursos' : 'Outros')
+    );
+    if (botaoAtivo) botaoAtivo.classList.add('active');
+    
+    // Fechar todos os iframes
+    fecharTodosIframes();
+    
+    // Scroll para o topo
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
     </script>
 </body>
 </html>
