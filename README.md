@@ -41,14 +41,6 @@ Como parte do meu compromisso com a melhoria do serviço público, desenvolvi e 
 
 ---
 
-## 📊 Estatísticas do GitHub
-<p align="center">
-  <img height="180em" src="https://github-readme-stats.vercel.app""")/>>
-  <img height="180em" src="https://github-readme-stats.vercel.app""")/>>
-</p>
-
----
-
 ## 🔗 Conecte-se Comigo
 [![Blog](https://img.shields.io)](https://sites.google.com/view/amorepsicanalise/)
 [![E-mail](https://img.shields.io)](mailto:vasconcelos.gilton@gmail.com)
