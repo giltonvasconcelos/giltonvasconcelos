@@ -17,13 +17,135 @@
             color: #333;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
+            transition: all 0.3s ease;
+        }
+
+        /* Menu Lateral */
+        .side-menu {
+            position: fixed;
+            left: 0;
+            top: 0;
+            height: 100vh;
+            width: 280px;
+            background: white;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+            transform: translateX(0);
+            transition: transform 0.3s ease;
+            z-index: 1000;
+            overflow-y: auto;
+            padding: 20px 0;
+        }
+
+        .side-menu.closed {
+            transform: translateX(-100%);
+        }
+
+        /* Cabeçalho do Menu */
+        .menu-header {
+            padding: 0 20px 20px 20px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .menu-header h3 {
+            color: #764ba2;
+            font-size: 1.2em;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #666;
+            padding: 0 5px;
+            transition: color 0.3s ease;
+        }
+
+        .close-btn:hover {
+            color: #764ba2;
+        }
+
+        /* Itens do Menu */
+        .menu-items {
+            padding: 20px;
+        }
+
+        .menu-btn {
+            display: block;
+            width: 100%;
+            padding: 15px 20px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 10px;
+            background: #f5f5f5;
+            color: #555;
+            font-size: 1.1em;
+            font-weight: 600;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .menu-btn:hover {
+            background: #764ba2;
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .menu-btn.active {
+            background: #764ba2;
+            color: white;
+        }
+
+        /* Botão para abrir menu */
+        .open-menu-btn {
+            position: fixed;
+            left: 20px;
+            top: 20px;
+            padding: 12px 20px;
+            background: #764ba2;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(118, 75, 162, 0.3);
+            z-index: 999;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .open-menu-btn:hover {
+            background: #5a3b7c;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(118, 75, 162, 0.4);
+        }
+
+        .open-menu-btn.hidden {
+            display: none;
+        }
+
+        /* Conteúdo principal */
+        .main-content {
+            margin-left: 280px;
+            padding: 20px;
+            transition: margin-left 0.3s ease;
+        }
+
+        .main-content.expanded {
+            margin-left: 0;
         }
 
         /* Container principal */
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
         }
 
         /* Cabeçalho */
@@ -45,45 +167,6 @@
         header p {
             color: #666;
             font-size: 1.2em;
-        }
-
-        /* Menu de navegação */
-        .nav-menu {
-            background: white;
-            padding: 15px;
-            border-radius: 50px;
-            margin-bottom: 30px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .nav-btn {
-            padding: 10px 25px;
-            border: none;
-            border-radius: 25px;
-            background: #f0f0f0;
-            color: #555;
-            font-size: 1em;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .nav-btn:hover {
-            background: #764ba2;
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(118, 75, 162, 0.3);
-        }
-
-        .nav-btn.active {
-            background: #764ba2;
-            color: white;
         }
 
         /* Seção principal */
@@ -256,42 +339,6 @@
             left: 0;
         }
 
-        /* Botão voltar */
-        .back-btn {
-            display: inline-block;
-            margin: 20px 0;
-            padding: 10px 25px;
-            background: #f0f0f0;
-            color: #555;
-            text-decoration: none;
-            border-radius: 25px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .back-btn:hover {
-            background: #ddd;
-        }
-
-        /* Rodapé */
-        footer {
-            text-align: center;
-            padding: 20px;
-            color: white;
-            margin-top: 40px;
-        }
-
-        footer a {
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
         /* Esconder/mostrar seções */
         .hidden {
             display: none;
@@ -299,6 +346,16 @@
 
         /* Responsividade */
         @media (max-width: 768px) {
+            .side-menu {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .main-content {
+                margin-left: 0;
+                padding: 20px 10px;
+            }
+            
             header h1 {
                 font-size: 2em;
             }
@@ -314,262 +371,321 @@
             .iframe-container iframe {
                 height: 400px;
             }
+            
+            .open-menu-btn {
+                top: 10px;
+                left: 10px;
+                padding: 8px 15px;
+                font-size: 0.9em;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Cabeçalho -->
-        <header>
-            <h1>🚀 Gilton Vasconcelos</h1>
-            <p>Gestão Pública | Tecnologia | Inovação | Psicanálise</p>
-        </header>
+    <!-- Menu Lateral -->
+    <div class="side-menu" id="sideMenu">
+        <div class="menu-header">
+            <h3>📌 Navegação</h3>
+            <button class="close-btn" onclick="toggleMenu()">✕</button>
+        </div>
+        
+        <div class="menu-items">
+            <button class="menu-btn active" onclick="mostrarSecao('home'); toggleMenuMobile()">
+                🏠 Home
+            </button>
+            <button class="menu-btn" onclick="mostrarSecao('sobre'); toggleMenuMobile()">
+                👤 Sobre Mim
+            </button>
+            <button class="menu-btn" onclick="mostrarSecao('projetos'); toggleMenuMobile()">
+                📁 Projetos
+            </button>
+            <button class="menu-btn" onclick="mostrarSecao('cursos'); toggleMenuMobile()">
+                🎓 Cursos
+            </button>
+            <button class="menu-btn" onclick="mostrarSecao('outros'); toggleMenuMobile()">
+                🔗 Outros Links
+            </button>
+        </div>
+        
+        <!-- Informação extra no menu -->
+        <div style="padding: 20px; border-top: 1px solid #eee; margin-top: 20px;">
+            <p style="color: #666; font-size: 0.9em;">
+                <strong>📧 Contato:</strong><br>
+                vasconcelos.gilton@gmail.com
+            </p>
+        </div>
+    </div>
 
-        <!-- Menu de Navegação -->
-        <nav class="nav-menu">
-            <button class="nav-btn active" onclick="mostrarSecao('home')">🏠 Home</button>
-            <button class="nav-btn" onclick="mostrarSecao('sobre')">👤 Sobre Mim</button>
-            <button class="nav-btn" onclick="mostrarSecao('projetos')">📁 Projetos</button>
-            <button class="nav-btn" onclick="mostrarSecao('cursos')">🎓 Cursos</button>
-            <button class="nav-btn" onclick="mostrarSecao('outros')">🔗 Outros Links</button>
-        </nav>
+    <!-- Botão para abrir menu -->
+    <button class="open-menu-btn" id="openMenuBtn" onclick="toggleMenu()">
+        ☰ Menu
+    </button>
 
-        <!-- Seção HOME (Padrão) -->
-        <section id="home" class="section">
-            <h2>🏠 Página Inicial</h2>
-            <p>Bem-vindo ao meu portal profissional! Aqui você encontra todos os meus projetos, cursos e conteúdos em um só lugar. Use o menu acima para navegar ou clique diretamente nos cards abaixo:</p>
-            
-            <div class="card-grid">
-                <!-- Card Sobre Mim -->
-                <div class="card">
-                    <span class="card-badge">👤 Perfil</span>
-                    <h3>Sobre Mim</h3>
-                    <p>Servidor público, especialista em transformação digital e psicanalista. Conheça minha trajetória e atuação profissional.</p>
-                    <button class="btn" onclick="mostrarSecao('sobre')">Ver Perfil →</button>
+    <!-- Conteúdo principal -->
+    <div class="main-content" id="mainContent">
+        <div class="container">
+            <!-- Cabeçalho -->
+            <header>
+                <h1>🚀 Gilton Vasconcelos</h1>
+                <p>Gestão Pública | Tecnologia | Inovação | Psicanálise</p>
+            </header>
+
+            <!-- Seção HOME -->
+            <section id="home" class="section">
+                <h2>🏠 Página Inicial</h2>
+                <p>Bem-vindo ao meu portal profissional! Aqui você encontra todos os meus projetos, cursos e conteúdos em um só lugar. Use o menu lateral para navegar ou clique diretamente nos cards abaixo:</p>
+                
+                <div class="card-grid">
+                    <!-- Card Sobre Mim -->
+                    <div class="card">
+                        <span class="card-badge">👤 Perfil</span>
+                        <h3>Sobre Mim</h3>
+                        <p>Servidor público, especialista em transformação digital e psicanalista. Conheça minha trajetória e atuação profissional.</p>
+                        <button class="btn" onclick="mostrarSecao('sobre')">Ver Perfil →</button>
+                    </div>
+
+                    <!-- Card Projetos -->
+                    <div class="card">
+                        <span class="card-badge">📁 Trabalhos</span>
+                        <h3>Projetos</h3>
+                        <p>Conheça os projetos que desenvolvi na área pública, incluindo transformação digital, capacitações e inovações.</p>
+                        <button class="btn" onclick="mostrarSecao('projetos')">Ver Projetos →</button>
+                    </div>
+
+                    <!-- Card Cursos -->
+                    <div class="card">
+                        <span class="card-badge">🎓 Educação</span>
+                        <h3>Cursos</h3>
+                        <p>Materiais didáticos, treinamentos e capacitações desenvolvidas para servidores públicos.</p>
+                        <button class="btn" onclick="mostrarSecao('cursos')">Ver Cursos →</button>
+                    </div>
+
+                    <!-- Card Outros -->
+                    <div class="card">
+                        <span class="card-badge">🔗 Links</span>
+                        <h3>Outros Conteúdos</h3>
+                        <p>Blog, artigos, produções técnicas e redes sociais.</p>
+                        <button class="btn" onclick="mostrarSecao('outros')">Explorar →</button>
+                    </div>
                 </div>
 
-                <!-- Card Projetos -->
-                <div class="card">
-                    <span class="card-badge">📁 Trabalhos</span>
-                    <h3>Projetos</h3>
-                    <p>Conheça os projetos que desenvolvi na área pública, incluindo transformação digital, capacitações e inovações.</p>
-                    <button class="btn" onclick="mostrarSecao('projetos')">Ver Projetos →</button>
+                <!-- Estatísticas -->
+                <div style="margin-top: 40px; text-align: center;">
+                    <img height="150em" src="https://github-readme-stats.vercel.app/api?username=giltonvasconcelos&show_icons=true&theme=midnight-purple&include_all_commits=true&count_private=true"/>
+                    <img height="150em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=giltonvasconcelos&layout=compact&langs_count=7&theme=midnight-purple"/>
                 </div>
+            </section>
 
-                <!-- Card Cursos -->
-                <div class="card">
-                    <span class="card-badge">🎓 Educação</span>
-                    <h3>Cursos</h3>
-                    <p>Materiais didáticos, treinamentos e capacitações desenvolvidas para servidores públicos.</p>
-                    <button class="btn" onclick="mostrarSecao('cursos')">Ver Cursos →</button>
-                </div>
-
-                <!-- Card Outros -->
-                <div class="card">
-                    <span class="card-badge">🔗 Links</span>
-                    <h3>Outros Conteúdos</h3>
-                    <p>Blog, artigos, produções técnicas e redes sociais.</p>
-                    <button class="btn" onclick="mostrarSecao('outros')">Explorar →</button>
-                </div>
-            </div>
-
-            <!-- Estatísticas rápidas -->
-            <div style="margin-top: 40px; text-align: center;">
-                <img height="150em" src="https://github-readme-stats.vercel.app/api?username=giltonvasconcelos&show_icons=true&theme=midnight-purple&include_all_commits=true&count_private=true"/>
-                <img height="150em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=giltonvasconcelos&layout=compact&langs_count=7&theme=midnight-purple"/>
-            </div>
-        </section>
-
-        <!-- Seção SOBRE MIM -->
-        <section id="sobre" class="section hidden">
-            <div class="iframe-header">
-                <h2>👤 Sobre Mim</h2>
-                <button class="btn-outline" onclick="mostrarSecao('home')">← Voltar à Home</button>
-            </div>
-            
-            <div class="profile-info">
-                <div class="profile-text">
-                    <h3>🏛️ Quem sou</h3>
-                    <p>Servidor público efetivo na <strong>Prefeitura Municipal de Triunfo (PE)</strong> desde 2008. Atuo na intersecção estratégica entre <strong>Gestão Pública</strong>, <strong>Tecnologia da Informação</strong> e <strong>Saúde Coletiva</strong>, com foco em transformar a administração pública através da digitalização e do cuidado humano.</p>
-                    
-                    <h3>📚 Formação</h3>
-                    <ul>
-                        <li>🎓 Graduando em Gestão da Tecnologia da Informação (FCV)</li>
-                        <li>🧠 Psicanalista Clínico (Instituto Gaio)</li>
-                        <li>🔐 Especialista em Segurança e LGPD</li>
-                    </ul>
-
-                    <h3>🔗 Links Relacionados</h3>
-                    <button class="btn" onclick="abrirIframe('sobre-site', 'https://giltonvasconcelos.github.io/giltonvasconcelos/')">Ver Site Pessoal</button>
-                    <a href="https://www.linkedin.com/in/gilton-vasconcelos/" target="_blank" class="btn-outline">LinkedIn</a>
+            <!-- Seção SOBRE MIM -->
+            <section id="sobre" class="section hidden">
+                <div class="iframe-header">
+                    <h2>👤 Sobre Mim</h2>
+                    <button class="btn-outline" onclick="mostrarSecao('home')">← Voltar à Home</button>
                 </div>
                 
-                <div class="profile-stats">
-                    <h3>📊 Destaques</h3>
-                    <ul>
-                        <li>16+ anos no serviço público</li>
-                        <li>Coordenador do projeto "Informática para Todos"</li>
-                        <li>Membro do Comitê de Investimentos RPPS</li>
-                        <li>Conselheiro Municipal de Saúde</li>
-                        <li>Autor do projeto "Amor e Psicanálise"</li>
-                    </ul>
-                </div>
-            </div>
+                <div class="profile-info">
+                    <div class="profile-text">
+                        <h3>🏛️ Quem sou</h3>
+                        <p>Servidor público efetivo na <strong>Prefeitura Municipal de Triunfo (PE)</strong> desde 2008. Atuo na intersecção estratégica entre <strong>Gestão Pública</strong>, <strong>Tecnologia da Informação</strong> e <strong>Saúde Coletiva</strong>, com foco em transformar a administração pública através da digitalização e do cuidado humano.</p>
+                        
+                        <h3>📚 Formação</h3>
+                        <ul>
+                            <li>🎓 Graduando em Gestão da Tecnologia da Informação (FCV)</li>
+                            <li>🧠 Psicanalista Clínico (Instituto Gaio)</li>
+                            <li>🔐 Especialista em Segurança e LGPD</li>
+                        </ul>
 
-            <!-- Container para iframe do site pessoal -->
-            <div id="sobre-site-container" class="iframe-container hidden">
+                        <h3>🔗 Links Relacionados</h3>
+                        <button class="btn" onclick="abrirIframe('sobre-site', 'https://giltonvasconcelos.github.io/giltonvasconcelos/')">Ver Site Pessoal</button>
+                        <a href="https://www.linkedin.com/in/gilton-vasconcelos/" target="_blank" class="btn-outline">LinkedIn</a>
+                    </div>
+                    
+                    <div class="profile-stats">
+                        <h3>📊 Destaques</h3>
+                        <ul>
+                            <li>16+ anos no serviço público</li>
+                            <li>Coordenador do projeto "Informática para Todos"</li>
+                            <li>Membro do Comitê de Investimentos RPPS</li>
+                            <li>Conselheiro Municipal de Saúde</li>
+                            <li>Autor do projeto "Amor e Psicanálise"</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Container para iframe -->
+                <div id="sobre-site-container" class="iframe-container hidden">
+                    <div class="iframe-header">
+                        <span>🌐 Site Pessoal</span>
+                        <button class="btn-outline" onclick="fecharIframe('sobre-site-container')">Fechar</button>
+                    </div>
+                    <iframe id="sobre-site" src=""></iframe>
+                </div>
+            </section>
+
+            <!-- Seção PROJETOS -->
+            <section id="projetos" class="section hidden">
                 <div class="iframe-header">
-                    <span>🌐 giltonvasconcelos.github.io/giltonvasconcelos/</span>
-                    <button class="btn-outline" onclick="fecharIframe('sobre-site-container')">Fechar</button>
-                </div>
-                <iframe id="sobre-site" src=""></iframe>
-            </div>
-        </section>
-
-        <!-- Seção PROJETOS -->
-        <section id="projetos" class="section hidden">
-            <div class="iframe-header">
-                <h2>📁 Projetos</h2>
-                <button class="btn-outline" onclick="mostrarSecao('home')">← Voltar à Home</button>
-            </div>
-
-            <div class="card-grid">
-                <!-- Card Projeto 1 -->
-                <div class="card">
-                    <span class="card-badge">🚀 Transformação Digital</span>
-                    <h3>Informática para Todos</h3>
-                    <p>Projeto de capacitação de servidores municipais para uso de ferramentas digitais, com foco na implementação do Prontuário Eletrônico (PEC) e teleatendimento no SUS.</p>
-                    <button class="btn" onclick="abrirIframe('proj1', 'https://giltonvasconcelos.github.io/curso_tdsp/')">Ver Projeto</button>
+                    <h2>📁 Projetos</h2>
+                    <button class="btn-outline" onclick="mostrarSecao('home')">← Voltar à Home</button>
                 </div>
 
-                <!-- Card Projeto 2 -->
-                <div class="card">
-                    <span class="card-badge">📖 Produção Técnica</span>
-                    <h3>Material Didático - Transformação Digital</h3>
-                    <p>Treinamento de Transformação Digital no Serviço Público (2026) - Material completo para capacitação de servidores.</p>
-                    <button class="btn" onclick="abrirIframe('proj2', 'https://giltonvasconcelos.github.io/curso_tdsp/')">Ver Material</button>
+                <div class="card-grid">
+                    <!-- Card Projeto 1 -->
+                    <div class="card">
+                        <span class="card-badge">🚀 Transformação Digital</span>
+                        <h3>Informática para Todos</h3>
+                        <p>Projeto de capacitação de servidores municipais para uso de ferramentas digitais, com foco na implementação do Prontuário Eletrônico (PEC) e teleatendimento no SUS.</p>
+                        <button class="btn" onclick="abrirIframe('proj1', 'https://giltonvasconcelos.github.io/curso_tdsp/')">Ver Projeto</button>
+                    </div>
+
+                    <!-- Card Projeto 2 -->
+                    <div class="card">
+                        <span class="card-badge">📖 Produção Técnica</span>
+                        <h3>Material Didático - Transformação Digital</h3>
+                        <p>Treinamento de Transformação Digital no Serviço Público (2026) - Material completo para capacitação de servidores.</p>
+                        <button class="btn" onclick="abrirIframe('proj2', 'https://giltonvasconcelos.github.io/curso_tdsp/')">Ver Material</button>
+                    </div>
+
+                    <!-- Card Projeto 3 -->
+                    <div class="card">
+                        <span class="card-badge">🧠 Psicanálise</span>
+                        <h3>Amor e Psicanálise</h3>
+                        <p>Projeto que explora a interface da clínica psicanalítica com foco em saúde mental e atendimento voluntário.</p>
+                        <a href="https://sites.google.com/view/amorepsicanalise/" target="_blank" class="btn">Visitar Blog</a>
+                    </div>
                 </div>
 
-                <!-- Card Projeto 3 -->
-                <div class="card">
-                    <span class="card-badge">🧠 Psicanálise</span>
-                    <h3>Amor e Psicanálise</h3>
-                    <p>Projeto que explora a interface da clínica psicanalítica com foco em saúde mental e atendimento voluntário.</p>
-                    <a href="https://sites.google.com/view/amorepsicanalise/" target="_blank" class="btn">Visitar Blog</a>
+                <!-- Containers para iframes -->
+                <div id="proj1-container" class="iframe-container hidden">
+                    <div class="iframe-header">
+                        <span>📁 Informática para Todos</span>
+                        <button class="btn-outline" onclick="fecharIframe('proj1-container')">Fechar</button>
+                    </div>
+                    <iframe id="proj1" src=""></iframe>
                 </div>
-            </div>
 
-            <!-- Containers para iframes -->
-            <div id="proj1-container" class="iframe-container hidden">
+                <div id="proj2-container" class="iframe-container hidden">
+                    <div class="iframe-header">
+                        <span>📖 Material Didático</span>
+                        <button class="btn-outline" onclick="fecharIframe('proj2-container')">Fechar</button>
+                    </div>
+                    <iframe id="proj2" src=""></iframe>
+                </div>
+            </section>
+
+            <!-- Seção CURSOS -->
+            <section id="cursos" class="section hidden">
                 <div class="iframe-header">
-                    <span>📁 Projeto Informática para Todos</span>
-                    <button class="btn-outline" onclick="fecharIframe('proj1-container')">Fechar</button>
+                    <h2>🎓 Cursos e Treinamentos</h2>
+                    <button class="btn-outline" onclick="mostrarSecao('home')">← Voltar à Home</button>
                 </div>
-                <iframe id="proj1" src=""></iframe>
-            </div>
 
-            <div id="proj2-container" class="iframe-container hidden">
+                <div class="card-grid">
+                    <!-- Card Curso 1 -->
+                    <div class="card">
+                        <span class="card-badge">📚 Em Andamento</span>
+                        <h3>Competências Digitais para o Serviço Público</h3>
+                        <p>Curso completo para capacitar servidores no uso estratégico, ético e seguro das tecnologias digitais, com foco em LGPD e LAI.</p>
+                        <button class="btn" onclick="abrirIframe('curso1', 'https://giltonvasconcelos.github.io/curso_tdsp/')">Acessar Curso</button>
+                    </div>
+
+                    <!-- Card Curso 2 -->
+                    <div class="card">
+                        <span class="card-badge">🔐 LGPD</span>
+                        <h3>Boas Práticas em Proteção de Dados</h3>
+                        <p>Treinamento sobre conformidade com a LGPD no setor público, incluindo manuais e documentação técnica.</p>
+                        <button class="btn" onclick="abrirIframe('curso2', 'https://giltonvasconcelos.github.io/curso_tdsp/')">Ver Conteúdo</button>
+                    </div>
+                </div>
+
+                <!-- Containers para iframes -->
+                <div id="curso1-container" class="iframe-container hidden">
+                    <div class="iframe-header">
+                        <span>🎓 Competências Digitais</span>
+                        <button class="btn-outline" onclick="fecharIframe('curso1-container')">Fechar</button>
+                    </div>
+                    <iframe id="curso1" src=""></iframe>
+                </div>
+
+                <div id="curso2-container" class="iframe-container hidden">
+                    <div class="iframe-header">
+                        <span>🔐 LGPD no Serviço Público</span>
+                        <button class="btn-outline" onclick="fecharIframe('curso2-container')">Fechar</button>
+                    </div>
+                    <iframe id="curso2" src=""></iframe>
+                </div>
+            </section>
+
+            <!-- Seção OUTROS -->
+            <section id="outros" class="section hidden">
                 <div class="iframe-header">
-                    <span>📖 Material Didático</span>
-                    <button class="btn-outline" onclick="fecharIframe('proj2-container')">Fechar</button>
-                </div>
-                <iframe id="proj2" src=""></iframe>
-            </div>
-        </section>
-
-        <!-- Seção CURSOS -->
-        <section id="cursos" class="section hidden">
-            <div class="iframe-header">
-                <h2>🎓 Cursos e Treinamentos</h2>
-                <button class="btn-outline" onclick="mostrarSecao('home')">← Voltar à Home</button>
-            </div>
-
-            <div class="card-grid">
-                <!-- Card Curso 1 -->
-                <div class="card">
-                    <span class="card-badge">📚 Em Andamento</span>
-                    <h3>Competências Digitais para o Serviço Público</h3>
-                    <p>Curso completo para capacitar servidores no uso estratégico, ético e seguro das tecnologias digitais, com foco em LGPD e LAI.</p>
-                    <button class="btn" onclick="abrirIframe('curso1', 'https://giltonvasconcelos.github.io/curso_tdsp/')">Acessar Curso</button>
+                    <h2>🔗 Outros Links e Recursos</h2>
+                    <button class="btn-outline" onclick="mostrarSecao('home')">← Voltar à Home</button>
                 </div>
 
-                <!-- Card Curso 2 -->
-                <div class="card">
-                    <span class="card-badge">🔐 LGPD</span>
-                    <h3>Boas Práticas em Proteção de Dados</h3>
-                    <p>Treinamento sobre conformidade com a LGPD no setor público, incluindo manuais e documentação técnica.</p>
-                    <button class="btn" onclick="abrirIframe('curso2', 'https://giltonvasconcelos.github.io/curso_tdsp/')">Ver Conteúdo</button>
+                <div class="card-grid">
+                    <!-- Card Blog -->
+                    <div class="card">
+                        <span class="card-badge">📝 Blog</span>
+                        <h3>Amor e Psicanálise</h3>
+                        <p>Explorações sobre psicanálise, saúde mental e comportamento humano.</p>
+                        <a href="https://sites.google.com/view/amorepsicanalise/" target="_blank" class="btn">Visitar Blog</a>
+                    </div>
+
+                    <!-- Card LinkedIn -->
+                    <div class="card">
+                        <span class="card-badge">💼 Profissional</span>
+                        <h3>LinkedIn</h3>
+                        <p>Perfil profissional com trajetória, recomendações e artigos.</p>
+                        <a href="https://www.linkedin.com/in/gilton-vasconcelos/" target="_blank" class="btn">Conectar</a>
+                    </div>
+
+                    <!-- Card Contato -->
+                    <div class="card">
+                        <span class="card-badge">📧 Contato</span>
+                        <h3>E-mail</h3>
+                        <p>Para propostas, parcerias e consultorias:</p>
+                        <p><strong>vasconcelos.gilton@gmail.com</strong></p>
+                        <a href="mailto:vasconcelos.gilton@gmail.com" class="btn">Enviar E-mail</a>
+                    </div>
+
+                    <!-- Card GitHub -->
+                    <div class="card">
+                        <span class="card-badge">🐙 Código</span>
+                        <h3>GitHub</h3>
+                        <p>Códigos, projetos e repositórios públicos.</p>
+                        <a href="https://github.com/giltonvasconcelos" target="_blank" class="btn">Ver GitHub</a>
+                    </div>
                 </div>
-            </div>
-
-            <!-- Containers para iframes -->
-            <div id="curso1-container" class="iframe-container hidden">
-                <div class="iframe-header">
-                    <span>🎓 Competências Digitais</span>
-                    <button class="btn-outline" onclick="fecharIframe('curso1-container')">Fechar</button>
-                </div>
-                <iframe id="curso1" src=""></iframe>
-            </div>
-
-            <div id="curso2-container" class="iframe-container hidden">
-                <div class="iframe-header">
-                    <span>🔐 LGPD no Serviço Público</span>
-                    <button class="btn-outline" onclick="fecharIframe('curso2-container')">Fechar</button>
-                </div>
-                <iframe id="curso2" src=""></iframe>
-            </div>
-        </section>
-
-        <!-- Seção OUTROS -->
-        <section id="outros" class="section hidden">
-            <div class="iframe-header">
-                <h2>🔗 Outros Links e Recursos</h2>
-                <button class="btn-outline" onclick="mostrarSecao('home')">← Voltar à Home</button>
-            </div>
-
-            <div class="card-grid">
-                <!-- Card Blog -->
-                <div class="card">
-                    <span class="card-badge">📝 Blog</span>
-                    <h3>Amor e Psicanálise</h3>
-                    <p>Explorações sobre psicanálise, saúde mental e comportamento humano.</p>
-                    <a href="https://sites.google.com/view/amorepsicanalise/" target="_blank" class="btn">Visitar Blog</a>
-                </div>
-
-                <!-- Card LinkedIn -->
-                <div class="card">
-                    <span class="card-badge">💼 Profissional</span>
-                    <h3>LinkedIn</h3>
-                    <p>Perfil profissional com trajetória, recomendações e artigos.</p>
-                    <a href="https://www.linkedin.com/in/gilton-vasconcelos/" target="_blank" class="btn">Conectar</a>
-                </div>
-
-                <!-- Card Contato -->
-                <div class="card">
-                    <span class="card-badge">📧 Contato</span>
-                    <h3>E-mail</h3>
-                    <p>Para propostas, parcerias e consultorias:</p>
-                    <p><strong>vasconcelos.gilton@gmail.com</strong></p>
-                    <a href="mailto:vasconcelos.gilton@gmail.com" class="btn">Enviar E-mail</a>
-                </div>
-
-                <!-- Card GitHub -->
-                <div class="card">
-                    <span class="card-badge">🐙 Código</span>
-                    <h3>GitHub</h3>
-                    <p>Códigos, projetos e repositórios públicos.</p>
-                    <a href="https://github.com/giltonvasconcelos" target="_blank" class="btn">Ver GitHub</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Rodapé -->
-        <footer>
-            <p>© 2026 Gilton Vasconcelos | Construído com HTML, CSS e JavaScript | <a href="#" onclick="mostrarSecao('home')">Voltar ao topo</a></p>
-        </footer>
+            </section>
+        </div>
     </div>
 
     <script>
+        // Controle do menu lateral
+        function toggleMenu() {
+            const menu = document.getElementById('sideMenu');
+            const mainContent = document.getElementById('mainContent');
+            const openBtn = document.getElementById('openMenuBtn');
+            
+            menu.classList.toggle('closed');
+            mainContent.classList.toggle('expanded');
+            
+            // Mostrar/esconder botão de abrir menu
+            if (menu.classList.contains('closed')) {
+                openBtn.classList.remove('hidden');
+            } else {
+                openBtn.classList.add('hidden');
+            }
+        }
+
+        // Fechar menu automaticamente em mobile após clicar
+        function toggleMenuMobile() {
+            if (window.innerWidth <= 768) {
+                toggleMenu();
+            }
+        }
+
         // Função para mostrar/esconder seções
         function mostrarSecao(secaoId) {
             // Esconder todas as seções
@@ -579,8 +695,8 @@
             // Mostrar a seção selecionada
             document.getElementById(secaoId).classList.remove('hidden');
             
-            // Atualizar botões ativos
-            const botoes = document.querySelectorAll('.nav-btn');
+            // Atualizar botões ativos no menu
+            const botoes = document.querySelectorAll('.menu-btn');
             botoes.forEach(btn => btn.classList.remove('active'));
             
             // Encontrar e ativar o botão correspondente
@@ -592,16 +708,17 @@
             );
             if (botaoAtivo) botaoAtivo.classList.add('active');
             
-            // Fechar todos os iframes ao mudar de seção
+            // Fechar todos os iframes
             fecharTodosIframes();
+            
+            // Scroll para o topo
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         // Função para abrir site em iframe
         function abrirIframe(id, url) {
-            // Fechar todos os iframes primeiro
             fecharTodosIframes();
             
-            // Abrir o iframe específico
             const container = document.getElementById(id + '-container');
             const iframe = document.getElementById(id);
             
@@ -609,7 +726,6 @@
                 iframe.src = url;
                 container.classList.remove('hidden');
                 
-                // Scroll suave até o iframe
                 setTimeout(() => {
                     container.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 }, 100);
@@ -622,7 +738,7 @@
             const iframe = container.querySelector('iframe');
             
             if (container && iframe) {
-                iframe.src = ''; // Limpa a fonte
+                iframe.src = '';
                 container.classList.add('hidden');
             }
         }
@@ -636,6 +752,33 @@
                 container.classList.add('hidden');
             });
         }
+
+        // Inicializar: garantir que menu começa aberto em desktop
+        window.addEventListener('load', function() {
+            if (window.innerWidth > 768) {
+                document.getElementById('sideMenu').classList.remove('closed');
+                document.getElementById('mainContent').classList.remove('expanded');
+                document.getElementById('openMenuBtn').classList.add('hidden');
+            } else {
+                // Em mobile, menu começa fechado
+                document.getElementById('sideMenu').classList.add('closed');
+                document.getElementById('mainContent').classList.add('expanded');
+                document.getElementById('openMenuBtn').classList.remove('hidden');
+            }
+        });
+
+        // Ajustar quando redimensionar a tela
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                document.getElementById('sideMenu').classList.remove('closed');
+                document.getElementById('mainContent').classList.remove('expanded');
+                document.getElementById('openMenuBtn').classList.add('hidden');
+            } else {
+                document.getElementById('sideMenu').classList.add('closed');
+                document.getElementById('mainContent').classList.add('expanded');
+                document.getElementById('openMenuBtn').classList.remove('hidden');
+            }
+        });
     </script>
 </body>
 </html>
