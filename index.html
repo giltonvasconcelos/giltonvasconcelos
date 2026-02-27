@@ -4,79 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gilton Vasconcelos - Portal Profissional</title>
+    
+    <!-- ===== CSS COMPLETO ===== -->
     <style>
-/* Estilo para o container do README */
-.readme-content {
-    background: white;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-    margin-top: 20px;
-    overflow-x: auto;
-}
-
-/* Estilo para o loading */
-.loading {
-    text-align: center;
-    padding: 50px;
-    color: #764ba2;
-    font-size: 1.2em;
-}
-
-/* Estilo para o conteúdo do README (igual ao GitHub) */
-.readme-content h1 {
-    border-bottom: 1px solid #eaecef;
-    padding-bottom: 0.3em;
-    color: #764ba2;
-}
-
-.readme-content h2 {
-    border-bottom: 1px solid #eaecef;
-    padding-bottom: 0.3em;
-    margin-top: 24px;
-}
-
-.readme-content table {
-    border-collapse: collapse;
-    width: 100%;
-    margin: 20px 0;
-}
-
-.readme-content th,
-.readme-content td {
-    border: 1px solid #dfe2e5;
-    padding: 6px 13px;
-}
-
-.readme-content th {
-    background-color: #f6f8fa;
-}
-
-.readme-content img {
-    max-width: 100%;
-}
-
-.readme-content hr {
-    height: 0.25em;
-    background-color: #e1e4e8;
-    border: 0;
-    margin: 24px 0;
-}
-
-.readme-content pre {
-    background-color: #f6f8fa;
-    border-radius: 3px;
-    padding: 16px;
-    overflow-x: auto;
-}
-
-.readme-content code {
-    background-color: rgba(27,31,35,0.05);
-    border-radius: 3px;
-    padding: 0.2em 0.4em;
-}
-
-        
         * {
             margin: 0;
             padding: 0;
@@ -371,44 +301,80 @@
             color: #ddd;
         }
 
-        /* Seção Sobre Mim */
-        .profile-info {
-            display: flex;
-            gap: 40px;
-            align-items: start;
-            flex-wrap: wrap;
+        /* Estilo para o container do README */
+        .readme-content {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            margin-top: 20px;
+            overflow-x: auto;
         }
 
-        .profile-text {
-            flex: 2;
-        }
-
-        .profile-stats {
-            flex: 1;
-            background: #f5f5f5;
-            padding: 20px;
-            border-radius: 10px;
-        }
-
-        .profile-stats h3 {
+        /* Estilo para o loading */
+        .loading {
+            text-align: center;
+            padding: 50px;
             color: #764ba2;
-            margin-bottom: 15px;
+            font-size: 1.2em;
         }
 
-        .profile-stats ul {
-            list-style: none;
+        /* Estilo para o conteúdo do README */
+        .readme-content h1 {
+            border-bottom: 1px solid #eaecef;
+            padding-bottom: 0.3em;
+            color: #764ba2;
         }
 
-        .profile-stats li {
-            margin-bottom: 10px;
-            padding-left: 25px;
-            position: relative;
+        .readme-content h2 {
+            border-bottom: 1px solid #eaecef;
+            padding-bottom: 0.3em;
+            margin-top: 24px;
         }
 
-        .profile-stats li:before {
-            content: "✅";
-            position: absolute;
-            left: 0;
+        .readme-content h3 {
+            margin-top: 24px;
+        }
+
+        .readme-content table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+        }
+
+        .readme-content th,
+        .readme-content td {
+            border: 1px solid #dfe2e5;
+            padding: 6px 13px;
+        }
+
+        .readme-content th {
+            background-color: #f6f8fa;
+        }
+
+        .readme-content img {
+            max-width: 100%;
+        }
+
+        .readme-content hr {
+            height: 0.25em;
+            background-color: #e1e4e8;
+            border: 0;
+            margin: 24px 0;
+        }
+
+        .readme-content ul, 
+        .readme-content ol {
+            padding-left: 2em;
+            margin: 16px 0;
+        }
+
+        .readme-content li {
+            margin: 4px 0;
+        }
+
+        .readme-content p {
+            margin: 16px 0;
         }
 
         /* Esconder/mostrar seções */
@@ -436,10 +402,6 @@
                 padding: 20px;
             }
             
-            .profile-info {
-                flex-direction: column;
-            }
-            
             .iframe-container iframe {
                 height: 400px;
             }
@@ -450,11 +412,15 @@
                 padding: 8px 15px;
                 font-size: 0.9em;
             }
+            
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Menu Lateral -->
+    <!-- ===== MENU LATERAL ===== -->
     <div class="side-menu" id="sideMenu">
         <div class="menu-header">
             <h3>📌 Navegação</h3>
@@ -479,7 +445,6 @@
             </button>
         </div>
         
-        <!-- Informação extra no menu -->
         <div style="padding: 20px; border-top: 1px solid #eee; margin-top: 20px;">
             <p style="color: #666; font-size: 0.9em;">
                 <strong>📧 Contato:</strong><br>
@@ -493,7 +458,7 @@
         ☰ Menu
     </button>
 
-    <!-- Conteúdo principal -->
+    <!-- ===== CONTEÚDO PRINCIPAL ===== -->
     <div class="main-content" id="mainContent">
         <div class="container">
             <!-- Cabeçalho -->
@@ -508,7 +473,6 @@
                 <p>Bem-vindo ao meu portal profissional! Aqui você encontra todos os meus projetos, cursos e conteúdos em um só lugar. Use o menu lateral para navegar ou clique diretamente nos cards abaixo:</p>
                 
                 <div class="card-grid">
-                    <!-- Card Sobre Mim -->
                     <div class="card">
                         <span class="card-badge">👤 Perfil</span>
                         <h3>Sobre Mim</h3>
@@ -516,7 +480,6 @@
                         <button class="btn" onclick="mostrarSecao('sobre')">Ver Perfil →</button>
                     </div>
 
-                    <!-- Card Projetos -->
                     <div class="card">
                         <span class="card-badge">📁 Trabalhos</span>
                         <h3>Projetos</h3>
@@ -524,7 +487,6 @@
                         <button class="btn" onclick="mostrarSecao('projetos')">Ver Projetos →</button>
                     </div>
 
-                    <!-- Card Cursos -->
                     <div class="card">
                         <span class="card-badge">🎓 Educação</span>
                         <h3>Cursos</h3>
@@ -532,7 +494,6 @@
                         <button class="btn" onclick="mostrarSecao('cursos')">Ver Cursos →</button>
                     </div>
 
-                    <!-- Card Outros -->
                     <div class="card">
                         <span class="card-badge">🔗 Links</span>
                         <h3>Outros Conteúdos</h3>
@@ -541,37 +502,34 @@
                     </div>
                 </div>
 
-                <!-- Estatísticas -->
                 <div style="margin-top: 40px; text-align: center;">
                     <img height="150em" src="https://github-readme-stats.vercel.app/api?username=giltonvasconcelos&show_icons=true&theme=midnight-purple&include_all_commits=true&count_private=true"/>
                     <img height="150em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=giltonvasconcelos&layout=compact&langs_count=7&theme=midnight-purple"/>
                 </div>
             </section>
 
-    <!-- Seção SOBRE MIM -->
-<!-- Seção SOBRE MIM -->
-<section id="sobre" class="section hidden">
-    <div class="iframe-header">
-        <h2>👤 Sobre Mim</h2>
-        <button class="btn-outline" onclick="mostrarSecao('home')">← Voltar à Home</button>
-    </div>
-    
-    <!-- Container onde o README será carregado -->
-    <div id="readme-container" class="readme-content">
-        <div class="loading">
-            <p>📖 Carregando conteúdo...</p>
-        </div>
-    </div>
+            <!-- Seção SOBRE MIM (com README carregado dinamicamente) -->
+            <section id="sobre" class="section hidden">
+                <div class="iframe-header">
+                    <h2>👤 Sobre Mim</h2>
+                    <button class="btn-outline" onclick="mostrarSecao('home')">← Voltar à Home</button>
+                </div>
+                
+                <div id="readme-container" class="readme-content">
+                    <div class="loading">
+                        <p>📖 Carregando conteúdo...</p>
+                    </div>
+                </div>
 
-    <!-- Container para iframe do site pessoal (opcional) -->
-    <div id="sobre-site-container" class="iframe-container hidden" style="margin-top: 30px;">
-        <div class="iframe-header">
-            <span>🌐 giltonvasconcelos.github.io/giltonvasconcelos/</span>
-            <button class="btn-outline" onclick="fecharIframe('sobre-site-container')">Fechar</button>
-        </div>
-        <iframe id="sobre-site" src=""></iframe>
-    </div>
-</section>    
+                <div id="sobre-site-container" class="iframe-container hidden" style="margin-top: 30px;">
+                    <div class="iframe-header">
+                        <span>🌐 Site Pessoal</span>
+                        <button class="btn-outline" onclick="fecharIframe('sobre-site-container')">Fechar</button>
+                    </div>
+                    <iframe id="sobre-site" src=""></iframe>
+                </div>
+            </section>
+
             <!-- Seção PROJETOS -->
             <section id="projetos" class="section hidden">
                 <div class="iframe-header">
@@ -580,7 +538,6 @@
                 </div>
 
                 <div class="card-grid">
-                    <!-- Card Projeto 1 -->
                     <div class="card">
                         <span class="card-badge">🚀 Transformação Digital</span>
                         <h3>Informática para Todos</h3>
@@ -588,7 +545,6 @@
                         <button class="btn" onclick="abrirIframe('proj1', 'https://giltonvasconcelos.github.io/curso_tdsp/')">Ver Projeto</button>
                     </div>
 
-                    <!-- Card Projeto 2 -->
                     <div class="card">
                         <span class="card-badge">📖 Produção Técnica</span>
                         <h3>Material Didático - Transformação Digital</h3>
@@ -596,7 +552,6 @@
                         <button class="btn" onclick="abrirIframe('proj2', 'https://giltonvasconcelos.github.io/curso_tdsp/')">Ver Material</button>
                     </div>
 
-                    <!-- Card Projeto 3 -->
                     <div class="card">
                         <span class="card-badge">🧠 Psicanálise</span>
                         <h3>Amor e Psicanálise</h3>
@@ -605,7 +560,6 @@
                     </div>
                 </div>
 
-                <!-- Containers para iframes -->
                 <div id="proj1-container" class="iframe-container hidden">
                     <div class="iframe-header">
                         <span>📁 Informática para Todos</span>
@@ -631,7 +585,6 @@
                 </div>
 
                 <div class="card-grid">
-                    <!-- Card Curso 1 -->
                     <div class="card">
                         <span class="card-badge">📚 Em Andamento</span>
                         <h3>Competências Digitais para o Serviço Público</h3>
@@ -639,7 +592,6 @@
                         <button class="btn" onclick="abrirIframe('curso1', 'https://giltonvasconcelos.github.io/curso_tdsp/')">Acessar Curso</button>
                     </div>
 
-                    <!-- Card Curso 2 -->
                     <div class="card">
                         <span class="card-badge">🔐 LGPD</span>
                         <h3>Boas Práticas em Proteção de Dados</h3>
@@ -648,7 +600,6 @@
                     </div>
                 </div>
 
-                <!-- Containers para iframes -->
                 <div id="curso1-container" class="iframe-container hidden">
                     <div class="iframe-header">
                         <span>🎓 Competências Digitais</span>
@@ -674,7 +625,6 @@
                 </div>
 
                 <div class="card-grid">
-                    <!-- Card Blog -->
                     <div class="card">
                         <span class="card-badge">📝 Blog</span>
                         <h3>Amor e Psicanálise</h3>
@@ -682,7 +632,6 @@
                         <a href="https://sites.google.com/view/amorepsicanalise/" target="_blank" class="btn">Visitar Blog</a>
                     </div>
 
-                    <!-- Card LinkedIn -->
                     <div class="card">
                         <span class="card-badge">💼 Profissional</span>
                         <h3>LinkedIn</h3>
@@ -690,7 +639,6 @@
                         <a href="https://www.linkedin.com/in/gilton-vasconcelos/" target="_blank" class="btn">Conectar</a>
                     </div>
 
-                    <!-- Card Contato -->
                     <div class="card">
                         <span class="card-badge">📧 Contato</span>
                         <h3>E-mail</h3>
@@ -699,7 +647,6 @@
                         <a href="mailto:vasconcelos.gilton@gmail.com" class="btn">Enviar E-mail</a>
                     </div>
 
-                    <!-- Card GitHub -->
                     <div class="card">
                         <span class="card-badge">🐙 Código</span>
                         <h3>GitHub</h3>
@@ -711,8 +658,9 @@
         </div>
     </div>
 
+    <!-- ===== JAVASCRIPT COMPLETO ===== -->
     <script>
-        // Controle do menu lateral
+        // === FUNÇÕES DO MENU LATERAL ===
         function toggleMenu() {
             const menu = document.getElementById('sideMenu');
             const mainContent = document.getElementById('mainContent');
@@ -721,7 +669,6 @@
             menu.classList.toggle('closed');
             mainContent.classList.toggle('expanded');
             
-            // Mostrar/esconder botão de abrir menu
             if (menu.classList.contains('closed')) {
                 openBtn.classList.remove('hidden');
             } else {
@@ -729,43 +676,32 @@
             }
         }
 
-        // Fechar menu automaticamente em mobile após clicar
         function toggleMenuMobile() {
             if (window.innerWidth <= 768) {
                 toggleMenu();
             }
         }
 
-        // Função para mostrar/esconder seções
-        function mostrarSecao(secaoId) {
-            // Esconder todas as seções
-            const secoes = document.querySelectorAll('.section');
-            secoes.forEach(sec => sec.classList.add('hidden'));
-            
-            // Mostrar a seção selecionada
-            document.getElementById(secaoId).classList.remove('hidden');
-            
-            // Atualizar botões ativos no menu
-            const botoes = document.querySelectorAll('.menu-btn');
-            botoes.forEach(btn => btn.classList.remove('active'));
-            
-            // Encontrar e ativar o botão correspondente
-            const botaoAtivo = Array.from(botoes).find(btn => 
-                btn.textContent.includes(secaoId === 'home' ? 'Home' : 
-                                       secaoId === 'sobre' ? 'Sobre' :
-                                       secaoId === 'projetos' ? 'Projetos' :
-                                       secaoId === 'cursos' ? 'Cursos' : 'Outros')
-            );
-            if (botaoAtivo) botaoAtivo.classList.add('active');
-            
-            // Fechar todos os iframes
-            fecharTodosIframes();
-            
-            // Scroll para o topo
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+        // === FUNÇÕES PARA IFRAMES ===
+        function fecharTodosIframes() {
+            const containers = document.querySelectorAll('[id$="-container"]');
+            containers.forEach(container => {
+                const iframe = container.querySelector('iframe');
+                if (iframe) iframe.src = '';
+                container.classList.add('hidden');
+            });
         }
 
-        // Função para abrir site em iframe
+        function fecharIframe(containerId) {
+            const container = document.getElementById(containerId);
+            const iframe = container.querySelector('iframe');
+            
+            if (container && iframe) {
+                iframe.src = '';
+                container.classList.add('hidden');
+            }
+        }
+
         function abrirIframe(id, url) {
             fecharTodosIframes();
             
@@ -782,42 +718,177 @@
             }
         }
 
-        // Função para fechar iframe
-        function fecharIframe(containerId) {
-            const container = document.getElementById(containerId);
-            const iframe = container.querySelector('iframe');
+        // === FUNÇÕES PARA CARREGAR O README ===
+        function carregarReadme() {
+            const container = document.getElementById('readme-container');
             
-            if (container && iframe) {
-                iframe.src = '';
-                container.classList.add('hidden');
+            container.innerHTML = '<div class="loading"><p>📖 Carregando conteúdo...</p></div>';
+            
+            fetch('https://raw.githubusercontent.com/giltonvasconcelos/giltonvasconcelos/main/README.md')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Erro ao carregar README');
+                    }
+                    return response.text();
+                })
+                .then(markdown => {
+                    const html = converterMarkdown(markdown);
+                    container.innerHTML = html;
+                })
+                .catch(error => {
+                    container.innerHTML = `<div class="loading" style="color: red;">
+                        <p>❌ Erro ao carregar: ${error.message}</p>
+                        <p>Carregando conteúdo padrão...</p>
+                    </div>`;
+                    container.innerHTML += carregarConteudoPadrao();
+                });
+        }
+
+        function converterMarkdown(texto) {
+            // Escapar HTML
+            texto = texto.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+            
+            // Converter cabeçalhos
+            texto = texto.replace(/^### (.*$)/gm, '<h3>$1</h3>');
+            texto = texto.replace(/^## (.*$)/gm, '<h2>$1</h2>');
+            texto = texto.replace(/^# (.*$)/gm, '<h1>$1</h1>');
+            
+            // Converter negrito
+            texto = texto.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+            texto = texto.replace(/__(.*?)__/g, '<strong>$1</strong>');
+            
+            // Converter itálico
+            texto = texto.replace(/\*(.*?)\*/g, '<em>$1</em>');
+            texto = texto.replace(/_(.*?)_/g, '<em>$1</em>');
+            
+            // Processar listas
+            let linhas = texto.split('\n');
+            let resultado = [];
+            let emLista = false;
+            let tipoLista = '';
+            
+            for (let i = 0; i < linhas.length; i++) {
+                let linha = linhas[i];
+                
+                if (linha.match(/^[-*+]\s/)) {
+                    if (!emLista || tipoLista !== 'ul') {
+                        if (emLista) resultado.push('</' + tipoLista + '>');
+                        resultado.push('<ul>');
+                        emLista = true;
+                        tipoLista = 'ul';
+                    }
+                    resultado.push('<li>' + linha.replace(/^[-*+]\s/, '') + '</li>');
+                } 
+                else if (linha.match(/^\d+\.\s/)) {
+                    if (!emLista || tipoLista !== 'ol') {
+                        if (emLista) resultado.push('</' + tipoLista + '>');
+                        resultado.push('<ol>');
+                        emLista = true;
+                        tipoLista = 'ol';
+                    }
+                    resultado.push('<li>' + linha.replace(/^\d+\.\s/, '') + '</li>');
+                }
+                else {
+                    if (emLista) {
+                        resultado.push('</' + tipoLista + '>');
+                        emLista = false;
+                    }
+                    resultado.push(linha);
+                }
             }
+            
+            if (emLista) {
+                resultado.push('</' + tipoLista + '>');
+            }
+            
+            texto = resultado.join('\n');
+            
+            // Converter linhas horizontais
+            texto = texto.replace(/^---$/gm, '<hr>');
+            
+            // Converter imagens
+            texto = texto.replace(/!\[(.*?)\]\((.*?)\)/g, '<img src="$2" alt="$1" style="max-width:100%">');
+            
+            // Converter links
+            texto = texto.replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank">$1</a>');
+            
+            // Converter parágrafos
+            let paragrafos = texto.split('\n\n');
+            texto = paragrafos.map(p => {
+                if (!p.match(/^<[hou]|^<img|^<hr/) && p.trim()) {
+                    return '<p>' + p.replace(/\n/g, ' ') + '</p>';
+                }
+                return p;
+            }).join('\n');
+            
+            return texto;
         }
 
-        // Função para fechar todos os iframes
-        function fecharTodosIframes() {
-            const containers = document.querySelectorAll('[id$="-container"]');
-            containers.forEach(container => {
-                const iframe = container.querySelector('iframe');
-                if (iframe) iframe.src = '';
-                container.classList.add('hidden');
-            });
+        function carregarConteudoPadrao() {
+            return `
+                <h1>Gilton Vasconcelos</h1>
+                
+                <h2>🏛️ Sobre Mim</h2>
+                <p>Servidor público efetivo na <strong>Prefeitura Municipal de Triunfo (PE)</strong> desde 2008. Atuo na intersecção estratégica entre <strong>Gestão Pública</strong>, <strong>Tecnologia da Informação</strong> e <strong>Saúde Coletiva</strong>, com foco em transformar a administração pública através da digitalização e do cuidado humano.</p>
+                
+                <ul>
+                    <li>🎓 Graduando em <strong>Gestão da Tecnologia da Informação</strong> (FCV).</li>
+                    <li>⚙️ Coordenador do projeto <strong>"Informática para Todos"</strong>.</li>
+                    <li>🔐 Especialista em infraestrutura de redes e conformidade com a <strong>LGPD</strong>.</li>
+                    <li>🧠 <strong>Psicanalista Clínico</strong> (Instituto Gaio).</li>
+                    <li>🖋️ Autor do projeto <strong>"Amor e Psicanálise"</strong>.</li>
+                </ul>
+
+                <h2>🏆 Destaques & Impacto</h2>
+                <ul>
+                    <li><strong>Transformação Digital:</strong> Liderança na capacitação de servidores municipais.</li>
+                    <li><strong>Gestão Estratégica:</strong> Atuação em planejamento orçamentário do SUS.</li>
+                    <li><strong>Inovação em Saúde:</strong> Elaboração de Planos de Contratação Anual.</li>
+                </ul>
+            `;
         }
 
-        // Inicializar: garantir que menu começa aberto em desktop
+        // === FUNÇÃO PRINCIPAL PARA MOSTRAR SEÇÕES ===
+        function mostrarSecao(secaoId) {
+            const secoes = document.querySelectorAll('.section');
+            secoes.forEach(sec => sec.classList.add('hidden'));
+            
+            const secaoAtual = document.getElementById(secaoId);
+            secaoAtual.classList.remove('hidden');
+            
+            if (secaoId === 'sobre') {
+                carregarReadme();
+            }
+            
+            const botoes = document.querySelectorAll('.menu-btn');
+            botoes.forEach(btn => btn.classList.remove('active'));
+            
+            const botaoAtivo = Array.from(botoes).find(btn => 
+                btn.textContent.includes(secaoId === 'home' ? 'Home' : 
+                                       secaoId === 'sobre' ? 'Sobre' :
+                                       secaoId === 'projetos' ? 'Projetos' :
+                                       secaoId === 'cursos' ? 'Cursos' : 'Outros')
+            );
+            if (botaoAtivo) botaoAtivo.classList.add('active');
+            
+            fecharTodosIframes();
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // === INICIALIZAÇÃO ===
         window.addEventListener('load', function() {
             if (window.innerWidth > 768) {
                 document.getElementById('sideMenu').classList.remove('closed');
                 document.getElementById('mainContent').classList.remove('expanded');
                 document.getElementById('openMenuBtn').classList.add('hidden');
             } else {
-                // Em mobile, menu começa fechado
                 document.getElementById('sideMenu').classList.add('closed');
                 document.getElementById('mainContent').classList.add('expanded');
                 document.getElementById('openMenuBtn').classList.remove('hidden');
             }
         });
 
-        // Ajustar quando redimensionar a tela
         window.addEventListener('resize', function() {
             if (window.innerWidth > 768) {
                 document.getElementById('sideMenu').classList.remove('closed');
@@ -829,162 +900,6 @@
                 document.getElementById('openMenuBtn').classList.remove('hidden');
             }
         });
-
-        // Função para carregar o README.md
-function carregarReadme() {
-    const container = document.getElementById('readme-container');
-    
-    // Mostrar loading
-    container.innerHTML = '<div class="loading"><p>📖 Carregando conteúdo...</p></div>';
-    
-    // Buscar o README.md do repositório
-    fetch('https://raw.githubusercontent.com/giltonvasconcelos/giltonvasconcelos/main/README.md')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Erro ao carregar README');
-            }
-            return response.text();
-        })
-        .then(markdown => {
-            // Converter Markdown para HTML (usando biblioteca simples)
-            const html = converterMarkdown(markdown);
-            container.innerHTML = html;
-        })
-        .catch(error => {
-            container.innerHTML = `<div class="loading" style="color: red;">
-                <p>❌ Erro ao carregar: ${error.message}</p>
-                <p>Carregando conteúdo padrão...</p>
-            </div>`;
-            // Fallback: conteúdo do README copiado
-            container.innerHTML = carregarConteudoPadrao();
-        });
-}
-
-// Função simples para converter Markdown básico para HTML
-function converterMarkdown(texto) {
-    // Escapar HTML
-    texto = texto.replace(/</g, '&lt;').replace(/>/g, '&gt;');
-    
-    // Converter cabeçalhos
-    texto = texto.replace(/^### (.*$)/gm, '<h3>$1</h3>');
-    texto = texto.replace(/^## (.*$)/gm, '<h2>$1</h2>');
-    texto = texto.replace(/^# (.*$)/gm, '<h1>$1</h1>');
-    
-    // Converter negrito
-    texto = texto.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-    texto = texto.replace(/__(.*?)__/g, '<strong>$1</strong>');
-    
-    // Converter itálico
-    texto = texto.replace(/\*(.*?)\*/g, '<em>$1</em>');
-    texto = texto.replace(/_(.*?)_/g, '<em>$1</em>');
-    
-    // Converter listas
-    let linhas = texto.split('\n');
-    let emLista = false;
-    let listaHtml = [];
-    
-    for (let i = 0; i < linhas.length; i++) {
-        let linha = linhas[i];
-        
-        // Lista não ordenada
-        if (linha.match(/^[-*+]\s/)) {
-            if (!emLista) {
-                listaHtml.push('<ul>');
-                emLista = true;
-            }
-            listaHtml.push('<li>' + linha.replace(/^[-*+]\s/, '') + '</li>');
-        } 
-        // Lista ordenada
-        else if (linha.match(/^\d+\.\s/)) {
-            if (!emLista) {
-                listaHtml.push('<ol>');
-                emLista = true;
-            }
-            listaHtml.push('<li>' + linha.replace(/^\d+\.\s/, '') + '</li>');
-        }
-        else {
-            if (emLista) {
-                listaHtml.push(linha.match(/^\d+\.\s/) ? '</ol>' : '</ul>');
-                emLista = false;
-            }
-            listaHtml.push(linha);
-        }
-    }
-    
-    texto = listaHtml.join('\n');
-    
-    // Converter linhas horizontais
-    texto = texto.replace(/^---$/gm, '<hr>');
-    
-    // Converter parágrafos
-    texto = texto.replace(/^(?!<[hou]|$)(.*$)/gm, '<p>$1</p>');
-    
-    // Converter imagens
-    texto = texto.replace(/!\[(.*?)\]\((.*?)\)/g, '<img src="$2" alt="$1">');
-    
-    // Converter links
-    texto = texto.replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank">$1</a>');
-    
-    return texto;
-}
-
-// Conteúdo padrão caso o fetch falhe
-function carregarConteudoPadrao() {
-    return `
-        <h1>Gilton Vasconcelos</h1>
-        
-        <h2>🏛️ Sobre Mim</h2>
-        <p>Servidor público efetivo na <strong>Prefeitura Municipal de Triunfo (PE)</strong> desde 2008. Atuo na intersecção estratégica entre <strong>Gestão Pública</strong>, <strong>Tecnologia da Informação</strong> e <strong>Saúde Coletiva</strong>, com foco em transformar a administração pública através da digitalização e do cuidado humano.</p>
-        
-        <ul>
-            <li>🎓 Graduando em <strong>Gestão da Tecnologia da Informação</strong> (FCV).</li>
-            <li>⚙️ Coordenador do projeto <strong>"Informática para Todos"</strong>.</li>
-            <li>🔐 Especialista em infraestrutura de redes e conformidade com a <strong>LGPD</strong>.</li>
-            <li>🧠 <strong>Psicanalista Clínico</strong> (Instituto Gaio).</li>
-        </ul>
-        
-        <h2>🏆 Destaques & Impacto</h2>
-        <ul>
-            <li><strong>Transformação Digital:</strong> Liderança na capacitação de servidores municipais.</li>
-            <li><strong>Gestão Estratégica:</strong> Atuação em planejamento orçamentário do SUS.</li>
-        </ul>
-    `;
-}
-
-        // Modifique a função mostrarSecao existente
-function mostrarSecao(secaoId) {
-    // Esconder todas as seções
-    const secoes = document.querySelectorAll('.section');
-    secoes.forEach(sec => sec.classList.add('hidden'));
-    
-    // Mostrar a seção selecionada
-    const secaoAtual = document.getElementById(secaoId);
-    secaoAtual.classList.remove('hidden');
-    
-    // Se for a seção "sobre", carregar o README
-    if (secaoId === 'sobre') {
-        carregarReadme();
-    }
-    
-    // Atualizar botões ativos no menu
-    const botoes = document.querySelectorAll('.menu-btn');
-    botoes.forEach(btn => btn.classList.remove('active'));
-    
-    // Encontrar e ativar o botão correspondente
-    const botaoAtivo = Array.from(botoes).find(btn => 
-        btn.textContent.includes(secaoId === 'home' ? 'Home' : 
-                               secaoId === 'sobre' ? 'Sobre' :
-                               secaoId === 'projetos' ? 'Projetos' :
-                               secaoId === 'cursos' ? 'Cursos' : 'Outros')
-    );
-    if (botaoAtivo) botaoAtivo.classList.add('active');
-    
-    // Fechar todos os iframes
-    fecharTodosIframes();
-    
-    // Scroll para o topo
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-}
     </script>
 </body>
 </html>
