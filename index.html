@@ -2,13 +2,13 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gilton Vasconcelos - Portfólio</title>
-    <!-- Fonte Inter (Google Fonts) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Gilton Vasconcelos · Portfólio</title>
+    <!-- Fonte Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap" rel="stylesheet">
-    <!-- Font Awesome para ícones -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
@@ -19,298 +19,512 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f8fafc;
-            color: #0f172a;
-            line-height: 1.5;
-            padding: 2rem 1.5rem;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        /* --- Cabeçalho / Perfil (inspirado no seu site) --- */
-        .profile {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .profile h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            letter-spacing: -0.02em;
-            margin-bottom: 0.5rem;
-            color: #0f172a;
-        }
-
-        .profile h1 i {
-            color: #3b82f6;
-            margin-right: 0.5rem;
-        }
-
-        .subhead {
-            font-size: 1.2rem;
-            color: #334155;
-            margin-bottom: 0.75rem;
-            font-weight: 400;
-        }
-
-        .badge-container {
-            display: flex;
-            gap: 0.5rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin: 1rem 0 0.5rem;
-        }
-
-        .badge {
-            background-color: #e2e8f0;
+            background-color: #f5f7fa;
             color: #1e293b;
-            padding: 0.3rem 1rem;
-            border-radius: 20px;
+            line-height: 1.5;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden; /* Impede rolagem da página inteira */
+        }
+
+        /* Container principal com rolagem interna */
+        .app-container {
+            flex: 1;
+            overflow-y: auto;
+            padding: 1.5rem 1.2rem 2rem;
+            -webkit-overflow-scrolling: touch; /* Rolagem suave no iOS */
+        }
+
+        /* Cabeçalho compacto */
+        .profile-compact {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            background: white;
+            padding: 1rem 1.2rem;
+            border-radius: 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+            border: 1px solid #e9eef3;
+        }
+
+        .avatar-placeholder {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .profile-info h1 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.2rem;
+            color: #0f172a;
+        }
+
+        .profile-info .title {
             font-size: 0.85rem;
+            color: #64748b;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.3rem;
+        }
+
+        .title span {
+            background: #f1f5f9;
+            padding: 0.2rem 0.6rem;
+            border-radius: 30px;
             font-weight: 500;
         }
 
-        /* Grid de Cards Principal */
-        .section-title {
-            font-size: 1.8rem;
-            font-weight: 600;
-            margin: 2.5rem 0 1.5rem 0;
-            padding-bottom: 0.5rem;
-            border-bottom: 3px solid #3b82f6;
-            display: inline-block;
-            color: #0f172a;
-        }
-
-        .section-title i {
-            color: #3b82f6;
-            margin-right: 0.75rem;
-        }
-
-        .cards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.8rem;
-            margin-bottom: 2rem;
-        }
-
-        .card {
+        /* Navegação por abas (simples) */
+        .tab-nav {
+            display: flex;
             background: white;
-            border-radius: 20px;
-            padding: 1.8rem 1.5rem;
-            text-decoration: none;
-            color: inherit;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
-            border: 1px solid #e9eef3;
-            transition: all 0.25s ease;
+            border-radius: 40px;
+            padding: 0.4rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            border: 1px solid #e2e8f0;
+        }
+
+        .tab-btn {
+            flex: 1;
+            text-align: center;
+            padding: 0.7rem 0;
+            background: transparent;
+            border: none;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #64748b;
+            transition: all 0.2s;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .tab-btn i {
+            margin-right: 0.3rem;
+            font-size: 0.9rem;
+        }
+
+        .tab-btn.active {
+            background: #3b82f6;
+            color: white;
+            box-shadow: 0 4px 8px rgba(59,130,246,0.3);
+        }
+
+        /* Conteúdo das abas */
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .tab-content.active-content {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Cards dentro das abas */
+        .section-cards {
             display: flex;
             flex-direction: column;
+            gap: 1rem;
         }
 
-        .card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 30px -10px rgba(59, 130, 246, 0.15);
-            border-color: #b9d4fe;
+        .card-mini {
+            background: white;
+            border-radius: 24px;
+            padding: 1.2rem;
+            text-decoration: none;
+            color: inherit;
+            border: 1px solid #edf2f7;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: all 0.2s;
         }
 
-        .card-icon {
-            font-size: 2.2rem;
-            margin-bottom: 1.2rem;
-            color: #3b82f6;
+        .card-mini:active {
+            transform: scale(0.99);
+            background: #fafcff;
+            border-color: #3b82f6;
+        }
+
+        .card-mini-icon {
+            width: 48px;
+            height: 48px;
             background: #eff6ff;
-            width: 60px;
-            height: 60px;
+            border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 18px;
+            font-size: 1.4rem;
+            color: #3b82f6;
+            flex-shrink: 0;
         }
 
-        .card h3 {
-            font-size: 1.4rem;
+        .card-mini-content {
+            flex: 1;
+        }
+
+        .card-mini-content h3 {
+            font-size: 1rem;
             font-weight: 600;
+            margin-bottom: 0.2rem;
+            color: #0f172a;
+        }
+
+        .card-mini-content p {
+            font-size: 0.8rem;
+            color: #64748b;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .card-mini-content p i {
+            font-size: 0.6rem;
+            color: #94a3b8;
+        }
+
+        .tag {
+            background: #f1f5f9;
+            padding: 0.2rem 0.7rem;
+            border-radius: 30px;
+            font-size: 0.65rem;
+            font-weight: 600;
+            color: #475569;
+            text-transform: uppercase;
+        }
+
+        /* Botão de voltar (para o detail view) */
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: white;
+            border: 1px solid #e2e8f0;
+            padding: 0.5rem 1.2rem;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #334155;
+            margin-bottom: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+        }
+
+        /* Tela de detalhe */
+        .detail-view {
+            background: white;
+            border-radius: 32px;
+            padding: 1.8rem 1.5rem;
+            border: 1px solid #e9eef3;
+            box-shadow: 0 20px 30px -10px rgba(0,0,0,0.05);
+        }
+
+        .detail-icon {
+            width: 70px;
+            height: 70px;
+            background: #eff6ff;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: #3b82f6;
+            margin-bottom: 1.2rem;
+        }
+
+        .detail-title {
+            font-size: 1.6rem;
+            font-weight: 700;
             margin-bottom: 0.5rem;
             color: #0f172a;
         }
 
-        .card p {
+        .detail-description {
             color: #475569;
-            font-size: 0.95rem;
-            margin-bottom: 1.2rem;
-            flex-grow: 1;
+            margin-bottom: 2rem;
+            font-size: 1rem;
         }
 
-        .card-tag {
-            display: inline-block;
-            background: #f1f5f9;
-            color: #334155;
-            font-size: 0.75rem;
-            font-weight: 600;
-            padding: 0.25rem 1rem;
-            border-radius: 30px;
-            letter-spacing: 0.3px;
-            align-self: flex-start;
-            text-transform: uppercase;
-        }
-
-        /* Seção de Links Sociais (inspirada no seu "Contato") */
-        .social-section {
-            margin: 3rem 0 2rem;
-            text-align: center;
-        }
-
-        .social-section h2 {
-            font-size: 1.8rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: #0f172a;
-        }
-
-        .social-icons {
-            display: flex;
-            gap: 1.8rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .social-icons a {
-            color: #334155;
-            font-size: 2rem;
-            transition: all 0.2s;
-            width: 60px;
-            height: 60px;
-            background: white;
-            border-radius: 50%;
+        .action-link {
             display: flex;
             align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
-            border: 1px solid #e2e8f0;
+            justify-content: space-between;
+            background: #f8fafc;
+            padding: 1rem 1.2rem;
+            border-radius: 30px;
             text-decoration: none;
+            color: #0f172a;
+            font-weight: 500;
+            border: 1px solid #e2e8f0;
+            margin-bottom: 1rem;
+            transition: background 0.2s;
         }
 
-        .social-icons a:hover {
+        .action-link i {
             color: #3b82f6;
-            transform: scale(1.1);
-            border-color: #3b82f6;
-            background: #f0f7ff;
         }
 
-        footer {
+        .action-link:active {
+            background: #eef2f6;
+        }
+
+        /* Footer fixo simples */
+        .footer-note {
             text-align: center;
-            margin-top: 4rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid #e2e8f0;
-            color: #64748b;
-            font-size: 0.9rem;
-        }
-
-        /* Responsividade simples */
-        @media (max-width: 600px) {
-            body { padding: 1.5rem 1rem; }
-            .profile h1 { font-size: 2rem; }
-            .cards-grid { grid-template-columns: 1fr; }
+            font-size: 0.7rem;
+            color: #94a3b8;
+            margin-top: 2rem;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Cabeçalho: seu nome e áreas (igual ao seu site, mas com badges) -->
-        <header class="profile">
-            <h1>
-                <i class="fas fa-rocket"></i> Gilton Vasconcelos
-            </h1>
-            <div class="subhead">Gestão Pública | Tecnologia | Inovação | Psicanálise</div>
-            <div class="badge-container">
-                <span class="badge">Servidor Público</span>
-                <span class="badge">TI</span>
-                <span class="badge">Psicanalista</span>
-                <span class="badge">Educador</span>
-            </div>
-            <p style="max-width: 600px; margin: 1.5rem auto 0; color: #334155;">
-                Bem-vindo ao meu portal profissional. Aqui você encontra projetos, cursos e conteúdos que integro nas áreas de tecnologia, gestão e psicanálise.
-            </p>
-        </header>
-
-        <!-- SEÇÃO 1: EDUCAÇÃO (Cursos e Treinamentos) -->
-        <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Educação</h2>
-        <div class="cards-grid">
-            <a href="#" class="card" target="_blank">
-                <div class="card-icon"><i class="fas fa-book-open"></i></div>
-                <h3>E-books Gratuitos</h3>
-                <p>Guias práticos de tecnologia e gestão pública para baixar agora.</p>
-                <span class="card-tag">Download</span>
-            </a>
-            <a href="#" class="card" target="_blank">
-                <div class="card-icon"><i class="fas fa-laptop-code"></i></div>
-                <h3>Cursos Completos</h3>
-                <p>Formações em TI, inovação no setor público e desenvolvimento pessoal.</p>
-                <span class="card-tag">Plataforma</span>
-            </a>
-            <a href="#" class="card" target="_blank">
-                <div class="card-icon"><i class="fas fa-podcast"></i></div>
-                <h3>PodCast por IA</h3>
-                <p>Projeto experimental de podcast com inteligência artificial.</p>
-                <span class="card-tag">Áudio</span>
-            </a>
-        </div>
-
-        <!-- SEÇÃO 2: PROJETOS (seus projetos principais) -->
-        <h2 class="section-title"><i class="fas fa-folder-open"></i> Projetos</h2>
-        <div class="cards-grid">
-            <a href="https://sites.google.com/view/amorepsicanalise/" class="card" target="_blank">
-                <div class="card-icon"><i class="fas fa-heart" style="color: #ec4899;"></i></div>
-                <h3>Amor e Psicanálise</h3>
-                <p>Conteúdos e reflexões sobre psicanálise e relacionamentos.</p>
-                <span class="card-tag">Site</span>
-            </a>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeuJuVCOVLrHvwNeZqluToXzHy5x_27PfwgBhtrTOQrZ-B8pw/viewform" class="card" target="_blank">
-                <div class="card-icon"><i class="fas fa-user-md"></i></div>
-                <h3>Sua Terapia Psicanalítica</h3>
-                <p>Agende sua sessão de terapia psicanalítica online.</p>
-                <span class="card-tag">Formulário</span>
-            </a>
-            <a href="https://www.dio.me/sign-up?ref=70598047350444B5A24DE78E40D6F8D2" class="card" target="_blank">
-                <div class="card-icon"><i class="fab fa-discord"></i></div>
-                <h3>DIO.me (recomendação)</h3>
-                <p>Plataforma de cursos de tecnologia com meu link de convite.</p>
-                <span class="card-tag">Afiliado</span>
-            </a>
-            <!-- Adicione mais cards conforme necessário -->
-        </div>
-
-        <!-- SEÇÃO 3: SOBRE MIM (Perfil) - um card especial maior -->
-        <h2 class="section-title"><i class="fas fa-user"></i> Perfil</h2>
-        <div style="display: grid; grid-template-columns: 1fr; gap: 1.8rem;">
-            <a href="#" class="card" style="flex-direction: row; align-items: center; gap: 1.5rem; flex-wrap: wrap;">
-                <div style="background: #eff6ff; border-radius: 30px; padding: 0.8rem 1.5rem;">
-                    <i class="fas fa-user-tie" style="font-size: 2.5rem; color:#3b82f6;"></i>
+    <div class="app-container" id="appContainer">
+        <!-- Cabeçalho compacto fixo no topo -->
+        <div class="profile-compact">
+            <div class="avatar-placeholder">GV</div>
+            <div class="profile-info">
+                <h1>Gilton Vasconcelos</h1>
+                <div class="title">
+                    <span>TI</span>
+                    <span>Psicanálise</span>
+                    <span>Gestão</span>
                 </div>
-                <div style="flex:1;">
-                    <h3 style="margin-bottom: 0.25rem;">Trajetória e Formações</h3>
-                    <p style="margin-bottom: 0;">Servidor público de carreira, especialista em TI e psicanalista. Conheça minha história e áreas de atuação.</p>
-                </div>
-                <span class="card-tag" style="align-self: center;">Saiba mais</span>
-            </a>
-        </div>
-
-        <!-- SEÇÃO 4: CONTATO (redes sociais) - igual ao seu site -->
-        <div class="social-section">
-            <h2><i class="fas fa-address-card"></i> Redes e Contato</h2>
-            <div class="social-icons">
-                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a>
-                <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
             </div>
         </div>
 
-        <footer>
-            <p>© 2025 Gilton Vasconcelos • Todos os direitos reservados</p>
-        </footer>
+        <!-- Navegação por abas (Home, Projetos, Contato) -->
+        <div class="tab-nav">
+            <button class="tab-btn active" id="tabHome" onclick="showTab('home')"><i class="fas fa-home"></i> Início</button>
+            <button class="tab-btn" id="tabProjetos" onclick="showTab('projetos')"><i class="fas fa-folder-open"></i> Projetos</button>
+            <button class="tab-btn" id="tabContato" onclick="showTab('contato')"><i class="fas fa-phone-alt"></i> Contato</button>
+        </div>
+
+        <!-- CONTEÚDO DINÂMICO DAS ABAS -->
+        <!-- Aba Início (home) -->
+        <div id="homeContent" class="tab-content active-content">
+            <div class="section-cards">
+                <!-- Mini card Educação (abre detalhe) -->
+                <div class="card-mini" onclick="showDetail('educacao')">
+                    <div class="card-mini-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <div class="card-mini-content">
+                        <h3>Educação</h3>
+                        <p><span class="tag">Cursos</span> <i class="fas fa-chevron-right"></i></p>
+                    </div>
+                </div>
+                <!-- Mini card Projetos (abre detalhe) -->
+                <div class="card-mini" onclick="showDetail('projetosLista')">
+                    <div class="card-mini-icon"><i class="fas fa-code-branch"></i></div>
+                    <div class="card-mini-content">
+                        <h3>Projetos</h3>
+                        <p><span class="tag">Iniciativas</span> <i class="fas fa-chevron-right"></i></p>
+                    </div>
+                </div>
+                <!-- Mini card Sobre -->
+                <div class="card-mini" onclick="showDetail('sobre')">
+                    <div class="card-mini-icon"><i class="fas fa-user"></i></div>
+                    <div class="card-mini-content">
+                        <h3>Sobre mim</h3>
+                        <p><span class="tag">Trajetória</span> <i class="fas fa-chevron-right"></i></p>
+                    </div>
+                </div>
+                <!-- Mini card Contato rápido -->
+                <div class="card-mini" onclick="showDetail('contatoRapido')">
+                    <div class="card-mini-icon"><i class="fas fa-envelope"></i></div>
+                    <div class="card-mini-content">
+                        <h3>Contato direto</h3>
+                        <p><span class="tag">Redes</span> <i class="fas fa-chevron-right"></i></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Aba Projetos (lista de projetos em cards) -->
+        <div id="projetosContent" class="tab-content">
+            <div class="section-cards">
+                <a href="https://sites.google.com/view/amorepsicanalise/" class="card-mini" target="_blank">
+                    <div class="card-mini-icon"><i class="fas fa-heart" style="color:#ec4899;"></i></div>
+                    <div class="card-mini-content">
+                        <h3>Amor e Psicanálise</h3>
+                        <p>Conteúdos e reflexões</p>
+                    </div>
+                </a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSeuJuVCOVLrHvwNeZqluToXzHy5x_27PfwgBhtrTOQrZ-B8pw/viewform" class="card-mini" target="_blank">
+                    <div class="card-mini-icon"><i class="fas fa-user-md"></i></div>
+                    <div class="card-mini-content">
+                        <h3>Sua Terapia Psicanalítica</h3>
+                        <p>Agendamento online</p>
+                    </div>
+                </a>
+                <a href="https://www.dio.me/sign-up?ref=70598047350444B5A24DE78E40D6F8D2" class="card-mini" target="_blank">
+                    <div class="card-mini-icon"><i class="fab fa-discord"></i></div>
+                    <div class="card-mini-content">
+                        <h3>DIO.me (recomendação)</h3>
+                        <p>Plataforma de tecnologia</p>
+                    </div>
+                </a>
+                <a href="#" class="card-mini">
+                    <div class="card-mini-icon"><i class="fas fa-podcast"></i></div>
+                    <div class="card-mini-content">
+                        <h3>PodCast por IA</h3>
+                        <p>Projeto experimental</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Aba Contato (lista de contatos) -->
+        <div id="contatoContent" class="tab-content">
+            <div class="section-cards">
+                <a href="#" class="card-mini">
+                    <div class="card-mini-icon"><i class="fab fa-linkedin-in"></i></div>
+                    <div class="card-mini-content">
+                        <h3>LinkedIn</h3>
+                        <p>Perfil profissional</p>
+                    </div>
+                </a>
+                <a href="#" class="card-mini">
+                    <div class="card-mini-icon"><i class="fab fa-github"></i></div>
+                    <div class="card-mini-content">
+                        <h3>GitHub</h3>
+                        <p>Códigos e projetos</p>
+                    </div>
+                </a>
+                <a href="#" class="card-mini">
+                    <div class="card-mini-icon"><i class="fab fa-instagram"></i></div>
+                    <div class="card-mini-content">
+                        <h3>Instagram</h3>
+                        <p>@gilton.vasconcelos</p>
+                    </div>
+                </a>
+                <a href="#" class="card-mini">
+                    <div class="card-mini-icon"><i class="fas fa-envelope"></i></div>
+                    <div class="card-mini-content">
+                        <h3>E-mail</h3>
+                        <p>gilton@exemplo.com</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Área de DETALHE (inicialmente vazia, exibida quando clica em um card) -->
+        <div id="detailArea" style="display: none;"></div>
+
+        <div class="footer-note">
+            © 2025 Gilton Vasconcelos · v2 mobile
+        </div>
     </div>
+
+    <script>
+        // Controle de abas
+        function showTab(tabName) {
+            // Esconde todos os conteúdos de aba
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active-content'));
+            // Desativa todos os botões
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+
+            // Mostra a aba selecionada
+            document.getElementById(tabName + 'Content').classList.add('active-content');
+            document.getElementById('tab' + tabName.charAt(0).toUpperCase() + tabName.slice(1)).classList.add('active');
+
+            // Esconde qualquer detalhe aberto
+            document.getElementById('detailArea').style.display = 'none';
+            document.getElementById('detailArea').innerHTML = '';
+        }
+
+        // Função para mostrar detalhe de um item (substitui a aba atual)
+        function showDetail(item) {
+            const detailArea = document.getElementById('detailArea');
+            let html = '';
+
+            // Botão voltar
+            const backButton = '<div class="back-btn" onclick="hideDetail()"><i class="fas fa-arrow-left"></i> Voltar</div>';
+
+            if (item === 'educacao') {
+                html = backButton + `
+                    <div class="detail-view">
+                        <div class="detail-icon"><i class="fas fa-graduation-cap"></i></div>
+                        <div class="detail-title">Educação</div>
+                        <div class="detail-description">Cursos, e-books e formações que ofereço.</div>
+                        <a href="#" class="action-link">E-books gratuitos <i class="fas fa-download"></i></a>
+                        <a href="#" class="action-link">Cursos completos <i class="fas fa-external-link-alt"></i></a>
+                        <a href="#" class="action-link">Guia para servidores <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                `;
+            } else if (item === 'projetosLista') {
+                html = backButton + `
+                    <div class="detail-view">
+                        <div class="detail-icon"><i class="fas fa-code-branch"></i></div>
+                        <div class="detail-title">Meus Projetos</div>
+                        <div class="detail-description">Iniciativas em tecnologia e psicanálise.</div>
+                        <a href="https://sites.google.com/view/amorepsicanalise/" class="action-link" target="_blank">Amor e Psicanálise <i class="fas fa-external-link-alt"></i></a>
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeuJuVCOVLrHvwNeZqluToXzHy5x_27PfwgBhtrTOQrZ-B8pw/viewform" class="action-link" target="_blank">Terapia Psicanalítica <i class="fas fa-external-link-alt"></i></a>
+                        <a href="#" class="action-link" target="_blank">PodCast por IA <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                `;
+            } else if (item === 'sobre') {
+                html = backButton + `
+                    <div class="detail-view">
+                        <div class="detail-icon"><i class="fas fa-user"></i></div>
+                        <div class="detail-title">Sobre mim</div>
+                        <div class="detail-description">
+                            Servidor público de carreira, atuo na área de Tecnologia da Informação. 
+                            Psicanalista clínico, buscando integrar inovação e desenvolvimento humano.
+                        </div>
+                        <a href="#" class="action-link">LinkedIn <i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="action-link">Trajetória profissional (PDF) <i class="fas fa-file-pdf"></i></a>
+                    </div>
+                `;
+            } else if (item === 'contatoRapido') {
+                html = backButton + `
+                    <div class="detail-view">
+                        <div class="detail-icon"><i class="fas fa-envelope"></i></div>
+                        <div class="detail-title">Contato direto</div>
+                        <div class="detail-description">Redes e formas de contato.</div>
+                        <a href="#" class="action-link"><i class="fab fa-whatsapp"></i> WhatsApp <i class="fas fa-chevron-right"></i></a>
+                        <a href="#" class="action-link"><i class="fab fa-telegram"></i> Telegram <i class="fas fa-chevron-right"></i></a>
+                        <a href="#" class="action-link"><i class="fas fa-envelope"></i> E-mail <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                `;
+            }
+
+            // Esconde as abas e mostra o detalhe
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active-content'));
+            detailArea.style.display = 'block';
+            detailArea.innerHTML = html;
+        }
+
+        // Função para esconder detalhe e voltar às abas
+        function hideDetail() {
+            document.getElementById('detailArea').style.display = 'none';
+            document.getElementById('detailArea').innerHTML = '';
+            // Reativa a aba atual (home por padrão)
+            const activeTab = document.querySelector('.tab-btn.active');
+            if (activeTab) {
+                const tabId = activeTab.id.replace('tab', '').toLowerCase();
+                document.getElementById(tabId + 'Content').classList.add('active-content');
+            } else {
+                // fallback
+                document.getElementById('homeContent').classList.add('active-content');
+            }
+        }
+    </script>
 </body>
 </html>
